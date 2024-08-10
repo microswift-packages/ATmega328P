@@ -1,0 +1,6 @@
+files:
+- ATmega328P+Pads.swift
+- ATmega328P+Peripherals.swift
+- ATmega328P.swift
+- Package.swift
+- module.modulemap

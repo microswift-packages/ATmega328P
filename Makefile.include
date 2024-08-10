@@ -1,0 +1,2 @@
+OTHER_SWIFT_FILES = ATmega328P+Pads.swift ATmega328P+Peripherals.swift ATmega328P.swift
+ADDITIONAL_C_FILES = 
