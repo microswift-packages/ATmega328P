@@ -201,6 +201,18 @@ extension ATmega328P.Usart0 {
       @inlinable @inline(__always) set { registerValue = (registerValue & ~0x1) | (Ucsr0C.RegisterType(newValue.bitfieldValue) << 0) }
     }
 
+    /// COMM_USART_MODE_2BIT
+    public enum CommUsartMode2Bit: UInt8, Bitfield, CaseIterable {
+      /// ASYNCHRONOUS_USART: Asynchronous USART (0x0)
+      case asynchronousUsart = 0x0
+
+      /// SYNCHRONOUS_USART: Synchronous USART (0x1)
+      case synchronousUsart = 0x1
+
+      /// MASTER_SPI: Master SPI (0x3)
+      case masterSpi = 0x3
+    }
+
     /// COMM_STOP_BIT_SEL
     public enum CommStopBitSel: UInt8, Bitfield, CaseIterable {
       /// 1_BIT: 1-bit (0x0)
@@ -220,18 +232,6 @@ extension ATmega328P.Usart0 {
 
       /// ENABLED_ODD_PARITY: Enabled, Odd Parity (0x3)
       case enabledOddParity = 0x3
-    }
-
-    /// COMM_USART_MODE_2BIT
-    public enum CommUsartMode2Bit: UInt8, Bitfield, CaseIterable {
-      /// ASYNCHRONOUS_USART: Asynchronous USART (0x0)
-      case asynchronousUsart = 0x0
-
-      /// SYNCHRONOUS_USART: Synchronous USART (0x1)
-      case synchronousUsart = 0x1
-
-      /// MASTER_SPI: Master SPI (0x3)
-      case masterSpi = 0x3
     }
   }
 }
@@ -1179,6 +1179,18 @@ extension ATmega328P.Adc {
       @inlinable @inline(__always) set { registerValue = (registerValue & ~0xF) | (Admux.RegisterType(newValue.bitfieldValue) << 0) }
     }
 
+    /// ANALOG_ADC_V_REF3
+    public enum AnalogAdcVRef3: UInt8, Bitfield, CaseIterable {
+      /// AREF_INTERNAL_VREF_TURNED_OFF: AREF, Internal Vref turned off (0x0)
+      case arefInternalVrefTurnedOff = 0x0
+
+      /// AVCC_WITH_EXTERNAL_CAPACITOR_AT_AREF_PIN: AVCC with external capacitor at AREF pin (0x1)
+      case avccWithExternalCapacitorAtArefPin = 0x1
+
+      /// INTERNAL_1_1V_VOLTAGE_REFERENCE_WITH_EXTERNAL_CAPACITOR_AT_AREF_PIN: Internal 1.1V Voltage Reference with external capacitor at AREF pin (0x3)
+      case internal11VVoltageReferenceWithExternalCapacitorAtArefPin = 0x3
+    }
+
     /// ADC_MUX_SINGLE
     public enum AdcMuxSingle: UInt8, Bitfield, CaseIterable {
       /// ADC0: ADC Single Ended Input pin 0 (0x0)
@@ -1213,18 +1225,6 @@ extension ATmega328P.Adc {
 
       /// ADC_GND: 0V (GND) (0xf)
       case adcGnd = 0xf
-    }
-
-    /// ANALOG_ADC_V_REF3
-    public enum AnalogAdcVRef3: UInt8, Bitfield, CaseIterable {
-      /// AREF_INTERNAL_VREF_TURNED_OFF: AREF, Internal Vref turned off (0x0)
-      case arefInternalVrefTurnedOff = 0x0
-
-      /// AVCC_WITH_EXTERNAL_CAPACITOR_AT_AREF_PIN: AVCC with external capacitor at AREF pin (0x1)
-      case avccWithExternalCapacitorAtArefPin = 0x1
-
-      /// INTERNAL_1_1V_VOLTAGE_REFERENCE_WITH_EXTERNAL_CAPACITOR_AT_AREF_PIN: Internal 1.1V Voltage Reference with external capacitor at AREF pin (0x3)
-      case internal11VVoltageReferenceWithExternalCapacitorAtArefPin = 0x3
     }
   }
 }

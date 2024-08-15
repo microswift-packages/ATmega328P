@@ -1,6 +1,25 @@
 files:
+- ATmega328P+ADC.swift
+- ATmega328P+CPU.swift
+- ATmega328P+HasAdc.swift
+- ATmega328P+HasTwi.swift
+- ATmega328P+HasUart.swift
 - ATmega328P+Pads.swift
 - ATmega328P+Peripherals.swift
+- ATmega328P+Pinouts.swift
+- ATmega328P+Portb.swift
+- ATmega328P+Portc.swift
+- ATmega328P+Portd.swift
+- ATmega328P+Tc0+8Bit.swift
+- ATmega328P+Tc0.swift
+- ATmega328P+Tc1+16bit.swift
+- ATmega328P+Tc1.swift
+- ATmega328P+Tc2+8Bit.swift
+- ATmega328P+Tc2+Async.swift
+- ATmega328P+Tc2.swift
+- ATmega328P+Twi.swift
+- ATmega328P+Usart0.swift
+- ATmega328P+Variants.swift
+- ATmega328P+WDT.swift
 - ATmega328P.swift
-- Package.swift
 - module.modulemap
