@@ -1,5 +1,9 @@
 import HAL
 
+extension ATmega328P.Adc: Adc {
+  /// Low level register conformance.
+}
+
 extension ATmega328P.Adc: AdcPeripheral {
   public typealias ChannelSelect = Admux.AdcMuxSingle
 

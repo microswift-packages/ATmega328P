@@ -213,15 +213,6 @@ extension ATmega328P.Usart0 {
       case masterSpi = 0x3
     }
 
-    /// COMM_STOP_BIT_SEL
-    public enum CommStopBitSel: UInt8, Bitfield, CaseIterable {
-      /// 1_BIT: 1-bit (0x0)
-      case _1Bit = 0x0
-
-      /// 2_BIT: 2-bit (0x1)
-      case _2Bit = 0x1
-    }
-
     /// COMM_UPM_PARITY_MODE
     public enum CommUpmParityMode: UInt8, Bitfield, CaseIterable {
       /// DISABLED: Disabled (0x0)
@@ -232,6 +223,15 @@ extension ATmega328P.Usart0 {
 
       /// ENABLED_ODD_PARITY: Enabled, Odd Parity (0x3)
       case enabledOddParity = 0x3
+    }
+
+    /// COMM_STOP_BIT_SEL
+    public enum CommStopBitSel: UInt8, Bitfield, CaseIterable {
+      /// 1_BIT: 1-bit (0x0)
+      case _1Bit = 0x0
+
+      /// 2_BIT: 2-bit (0x1)
+      case _2Bit = 0x1
     }
   }
 }

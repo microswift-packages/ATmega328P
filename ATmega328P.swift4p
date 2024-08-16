@@ -10,6 +10,7 @@ files:
 - ATmega328P+Portb.swift
 - ATmega328P+Portc.swift
 - ATmega328P+Portd.swift
+- ATmega328P+Spi.swift
 - ATmega328P+Tc0+8Bit.swift
 - ATmega328P+Tc0.swift
 - ATmega328P+Tc1+16bit.swift
