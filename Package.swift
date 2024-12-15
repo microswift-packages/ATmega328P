@@ -9,7 +9,12 @@ let package = Package(
             name: "ATmega328P",
             targets: ["ATmega328P"]),
     ],
-    dependencies: [.package(path: "/Users/carl/Documents/Code/HALGEN/build/ATmega328P//../HAL")],
+    dependencies: [
+        // local development version
+        // .package(path: "/Users/carl/Documents/Code/HALGEN/build/ATmega328P//../HAL")
+        // remote
+        .package(url: "https://github.com/microswift-packages/hal-baseline", from: "2.0.0"),
+    ],
     targets: [
         .target(
             name: "ATmega328P",
