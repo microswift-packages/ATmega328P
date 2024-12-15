@@ -2,16 +2,16 @@ import HAL
 
 extension ATmega328P.Cpu: HasGlobalInterruptSupport {
   /// Are global interrupts enabled?
-  @inlinable @inline(__always) public static var globalInterruptsEnabled: Bool {
-    @inlinable @inline(__always) get { .init(bitfieldValue: `sreg`.`i`.bitfieldValue) }
-    @inlinable @inline(__always) set { `sreg`.`i` = .init(bitfieldValue: newValue.bitfieldValue) }
+  public static var globalInterruptsEnabled: Bool {
+    get { .init(bitfieldValue: `sreg`.`i`.bitfieldValue) }
+    set { `sreg`.`i` = .init(bitfieldValue: newValue.bitfieldValue) }
   }
 }
 
 extension ATmega328P: HasGlobalInterruptSupport {
   /// Are global interrupts enabled?
-  @inlinable @inline(__always) public static var globalInterruptsEnabled: Bool {
-    @inlinable @inline(__always) get { Cpu.globalInterruptsEnabled }
-    @inlinable @inline(__always) set { Cpu.globalInterruptsEnabled = newValue }
+  public static var globalInterruptsEnabled: Bool {
+    get { Cpu.globalInterruptsEnabled }
+    set { Cpu.globalInterruptsEnabled = newValue }
   }
 }

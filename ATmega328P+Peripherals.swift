@@ -1,6 +1,6 @@
 import HAL
 
-// MARK: Peripherals
+// MARK:- Peripherals
 
 // MARK: - USART Peripherals
 
@@ -14,17 +14,17 @@ extension ATmega328P {
 
 extension ATmega328P.Usart0 {
   /// USART I/O Data Register (0xC6)
-  @inlinable @inline(__always) public static var `udr0`: UInt8 {
-    @inlinable @inline(__always) get { _registerRead(address: 0xC6) & 0xFF }
-    @inlinable @inline(__always) set { _registerWrite(address: 0xC6, value: newValue & 0xFF) }
+  public static var `udr0`: UInt8 {
+    get { _registerRead(address: 0xC6) & 0xFF }
+    set { _registerWrite(address: 0xC6, value: newValue & 0xFF) }
   }
 }
 
 extension ATmega328P.Usart0 {
   /// USART Control and Status Register A (0xC0)
-  @inlinable @inline(__always) public static var `ucsr0a`: Ucsr0A {
-    @inlinable @inline(__always) get { _registerRead(address: 0xC0) }
-    @inlinable @inline(__always) set { _registerWrite(address: 0xC0, value: newValue) }
+  public static var `ucsr0a`: Ucsr0A {
+    get { _registerRead(address: 0xC0) }
+    set { _registerWrite(address: 0xC0, value: newValue) }
   }
 
   /// USART Control and Status Register A (0xC0)
@@ -33,65 +33,65 @@ extension ATmega328P.Usart0 {
     public var registerValue: UInt8
 
     /// Initializes a new instance of the Ucsr0A register.
-    @inlinable @inline(__always) public init(registerValue: UInt8) {
+    public init(registerValue: UInt8) {
       self.registerValue = registerValue
     }
 
     /// USART Receive Complete
-    @inlinable @inline(__always) public var `rxc0`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x80) >> 7)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x80) | (Ucsr0A.RegisterType(newValue.bitfieldValue) << 7) }
+    public var `rxc0`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x80) >> 7)) }
+      set { registerValue = (registerValue & ~0x80) | (Ucsr0A.RegisterType(newValue.bitfieldValue) << 7) }
     }
 
     /// USART Transmitt Complete
-    @inlinable @inline(__always) public var `txc0`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x40) >> 6)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x40) | (Ucsr0A.RegisterType(newValue.bitfieldValue) << 6) }
+    public var `txc0`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x40) >> 6)) }
+      set { registerValue = (registerValue & ~0x40) | (Ucsr0A.RegisterType(newValue.bitfieldValue) << 6) }
     }
 
     /// USART Data Register Empty
-    @inlinable @inline(__always) public var `udre0`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x20) >> 5)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x20) | (Ucsr0A.RegisterType(newValue.bitfieldValue) << 5) }
+    public var `udre0`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x20) >> 5)) }
+      set { registerValue = (registerValue & ~0x20) | (Ucsr0A.RegisterType(newValue.bitfieldValue) << 5) }
     }
 
     /// Framing Error
-    @inlinable @inline(__always) public var `fe0`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x10) >> 4)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x10) | (Ucsr0A.RegisterType(newValue.bitfieldValue) << 4) }
+    public var `fe0`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x10) >> 4)) }
+      set { registerValue = (registerValue & ~0x10) | (Ucsr0A.RegisterType(newValue.bitfieldValue) << 4) }
     }
 
     /// Data overRun
-    @inlinable @inline(__always) public var `dor0`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x8) >> 3)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x8) | (Ucsr0A.RegisterType(newValue.bitfieldValue) << 3) }
+    public var `dor0`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x8) >> 3)) }
+      set { registerValue = (registerValue & ~0x8) | (Ucsr0A.RegisterType(newValue.bitfieldValue) << 3) }
     }
 
     /// Parity Error
-    @inlinable @inline(__always) public var `upe0`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x4) >> 2)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x4) | (Ucsr0A.RegisterType(newValue.bitfieldValue) << 2) }
+    public var `upe0`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x4) >> 2)) }
+      set { registerValue = (registerValue & ~0x4) | (Ucsr0A.RegisterType(newValue.bitfieldValue) << 2) }
     }
 
     /// Double the USART transmission speed
-    @inlinable @inline(__always) public var `u2x0`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x2) >> 1)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x2) | (Ucsr0A.RegisterType(newValue.bitfieldValue) << 1) }
+    public var `u2x0`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x2) >> 1)) }
+      set { registerValue = (registerValue & ~0x2) | (Ucsr0A.RegisterType(newValue.bitfieldValue) << 1) }
     }
 
     /// Multi-processor Communication Mode
-    @inlinable @inline(__always) public var `mpcm0`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x1) >> 0)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x1) | (Ucsr0A.RegisterType(newValue.bitfieldValue) << 0) }
+    public var `mpcm0`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x1) >> 0)) }
+      set { registerValue = (registerValue & ~0x1) | (Ucsr0A.RegisterType(newValue.bitfieldValue) << 0) }
     }
   }
 }
 
 extension ATmega328P.Usart0 {
   /// USART Control and Status Register B (0xC1)
-  @inlinable @inline(__always) public static var `ucsr0b`: Ucsr0B {
-    @inlinable @inline(__always) get { _registerRead(address: 0xC1) }
-    @inlinable @inline(__always) set { _registerWrite(address: 0xC1, value: newValue) }
+  public static var `ucsr0b`: Ucsr0B {
+    get { _registerRead(address: 0xC1) }
+    set { _registerWrite(address: 0xC1, value: newValue) }
   }
 
   /// USART Control and Status Register B (0xC1)
@@ -100,65 +100,65 @@ extension ATmega328P.Usart0 {
     public var registerValue: UInt8
 
     /// Initializes a new instance of the Ucsr0B register.
-    @inlinable @inline(__always) public init(registerValue: UInt8) {
+    public init(registerValue: UInt8) {
       self.registerValue = registerValue
     }
 
     /// RX Complete Interrupt Enable
-    @inlinable @inline(__always) public var `rxcie0`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x80) >> 7)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x80) | (Ucsr0B.RegisterType(newValue.bitfieldValue) << 7) }
+    public var `rxcie0`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x80) >> 7)) }
+      set { registerValue = (registerValue & ~0x80) | (Ucsr0B.RegisterType(newValue.bitfieldValue) << 7) }
     }
 
     /// TX Complete Interrupt Enable
-    @inlinable @inline(__always) public var `txcie0`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x40) >> 6)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x40) | (Ucsr0B.RegisterType(newValue.bitfieldValue) << 6) }
+    public var `txcie0`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x40) >> 6)) }
+      set { registerValue = (registerValue & ~0x40) | (Ucsr0B.RegisterType(newValue.bitfieldValue) << 6) }
     }
 
     /// USART Data register Empty Interrupt Enable
-    @inlinable @inline(__always) public var `udrie0`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x20) >> 5)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x20) | (Ucsr0B.RegisterType(newValue.bitfieldValue) << 5) }
+    public var `udrie0`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x20) >> 5)) }
+      set { registerValue = (registerValue & ~0x20) | (Ucsr0B.RegisterType(newValue.bitfieldValue) << 5) }
     }
 
     /// Receiver Enable
-    @inlinable @inline(__always) public var `rxen0`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x10) >> 4)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x10) | (Ucsr0B.RegisterType(newValue.bitfieldValue) << 4) }
+    public var `rxen0`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x10) >> 4)) }
+      set { registerValue = (registerValue & ~0x10) | (Ucsr0B.RegisterType(newValue.bitfieldValue) << 4) }
     }
 
     /// Transmitter Enable
-    @inlinable @inline(__always) public var `txen0`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x8) >> 3)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x8) | (Ucsr0B.RegisterType(newValue.bitfieldValue) << 3) }
+    public var `txen0`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x8) >> 3)) }
+      set { registerValue = (registerValue & ~0x8) | (Ucsr0B.RegisterType(newValue.bitfieldValue) << 3) }
     }
 
     /// Character Size - together with UCSZ0 in UCSR0C
-    @inlinable @inline(__always) public var `ucsz02`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x4) >> 2)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x4) | (Ucsr0B.RegisterType(newValue.bitfieldValue) << 2) }
+    public var `ucsz02`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x4) >> 2)) }
+      set { registerValue = (registerValue & ~0x4) | (Ucsr0B.RegisterType(newValue.bitfieldValue) << 2) }
     }
 
     /// Receive Data Bit 8
-    @inlinable @inline(__always) public var `rxb80`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x2) >> 1)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x2) | (Ucsr0B.RegisterType(newValue.bitfieldValue) << 1) }
+    public var `rxb80`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x2) >> 1)) }
+      set { registerValue = (registerValue & ~0x2) | (Ucsr0B.RegisterType(newValue.bitfieldValue) << 1) }
     }
 
     /// Transmit Data Bit 8
-    @inlinable @inline(__always) public var `txb80`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x1) >> 0)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x1) | (Ucsr0B.RegisterType(newValue.bitfieldValue) << 0) }
+    public var `txb80`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x1) >> 0)) }
+      set { registerValue = (registerValue & ~0x1) | (Ucsr0B.RegisterType(newValue.bitfieldValue) << 0) }
     }
   }
 }
 
 extension ATmega328P.Usart0 {
   /// USART Control and Status Register C (0xC2)
-  @inlinable @inline(__always) public static var `ucsr0c`: Ucsr0C {
-    @inlinable @inline(__always) get { _registerRead(address: 0xC2) }
-    @inlinable @inline(__always) set { _registerWrite(address: 0xC2, value: newValue) }
+  public static var `ucsr0c`: Ucsr0C {
+    get { _registerRead(address: 0xC2) }
+    set { _registerWrite(address: 0xC2, value: newValue) }
   }
 
   /// USART Control and Status Register C (0xC2)
@@ -167,38 +167,38 @@ extension ATmega328P.Usart0 {
     public var registerValue: UInt8
 
     /// Initializes a new instance of the Ucsr0C register.
-    @inlinable @inline(__always) public init(registerValue: UInt8) {
+    public init(registerValue: UInt8) {
       self.registerValue = registerValue
     }
 
     /// USART Mode Select
-    @inlinable @inline(__always) public var `umsel0`: CommUsartMode2Bit {
-      @inlinable @inline(__always) get { .init(bitfieldValue: CommUsartMode2Bit.BitfieldType((registerValue & 0xC0) >> 6)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0xC0) | (Ucsr0C.RegisterType(newValue.bitfieldValue) << 6) }
+    public var `umsel0`: CommUsartMode2Bit {
+      get { .init(bitfieldValue: CommUsartMode2Bit.BitfieldType((registerValue & 0xC0) >> 6)) }
+      set { registerValue = (registerValue & ~0xC0) | (Ucsr0C.RegisterType(newValue.bitfieldValue) << 6) }
     }
 
     /// Parity Mode Bits
-    @inlinable @inline(__always) public var `upm0`: CommUpmParityMode {
-      @inlinable @inline(__always) get { .init(bitfieldValue: CommUpmParityMode.BitfieldType((registerValue & 0x30) >> 4)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x30) | (Ucsr0C.RegisterType(newValue.bitfieldValue) << 4) }
+    public var `upm0`: CommUpmParityMode {
+      get { .init(bitfieldValue: CommUpmParityMode.BitfieldType((registerValue & 0x30) >> 4)) }
+      set { registerValue = (registerValue & ~0x30) | (Ucsr0C.RegisterType(newValue.bitfieldValue) << 4) }
     }
 
     /// Stop Bit Select
-    @inlinable @inline(__always) public var `usbs0`: CommStopBitSel {
-      @inlinable @inline(__always) get { .init(bitfieldValue: CommStopBitSel.BitfieldType((registerValue & 0x8) >> 3)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x8) | (Ucsr0C.RegisterType(newValue.bitfieldValue) << 3) }
+    public var `usbs0`: CommStopBitSel {
+      get { .init(bitfieldValue: CommStopBitSel.BitfieldType((registerValue & 0x8) >> 3)) }
+      set { registerValue = (registerValue & ~0x8) | (Ucsr0C.RegisterType(newValue.bitfieldValue) << 3) }
     }
 
     /// Character Size - together with UCSZ2 in UCSR0B
-    @inlinable @inline(__always) public var `ucsz0`: UInt8 {
-      @inlinable @inline(__always) get { .init(bitfieldValue: UInt8.BitfieldType((registerValue & 0x6) >> 1)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x6) | (Ucsr0C.RegisterType(newValue.bitfieldValue) << 1) }
+    public var `ucsz0`: UInt8 {
+      get { .init(bitfieldValue: UInt8.BitfieldType((registerValue & 0x6) >> 1)) }
+      set { registerValue = (registerValue & ~0x6) | (Ucsr0C.RegisterType(newValue.bitfieldValue) << 1) }
     }
 
     /// Clock Polarity
-    @inlinable @inline(__always) public var `ucpol0`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x1) >> 0)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x1) | (Ucsr0C.RegisterType(newValue.bitfieldValue) << 0) }
+    public var `ucpol0`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x1) >> 0)) }
+      set { registerValue = (registerValue & ~0x1) | (Ucsr0C.RegisterType(newValue.bitfieldValue) << 0) }
     }
 
     /// COMM_USART_MODE_2BIT
@@ -238,9 +238,9 @@ extension ATmega328P.Usart0 {
 
 extension ATmega328P.Usart0 {
   /// USART Baud Rate Register Bytes (0xC4)
-  @inlinable @inline(__always) public static var `ubrr0`: UInt16 {
-    @inlinable @inline(__always) get { _registerRead(address: 0xC4) & 0x0FFF }
-    @inlinable @inline(__always) set { _registerWrite(address: 0xC4, value: newValue & 0x0FFF) }
+  public static var `ubrr0`: UInt16 {
+    get { _registerRead(address: 0xC4) & 0x0FFF }
+    set { _registerWrite(address: 0xC4, value: newValue & 0x0FFF) }
   }
 }
 
@@ -279,9 +279,9 @@ extension ATmega328P {
 
 extension ATmega328P.Twi {
   /// TWI (Slave) Address Mask Register (0xBD)
-  @inlinable @inline(__always) public static var `twamr`: Twamr {
-    @inlinable @inline(__always) get { _registerRead(address: 0xBD) }
-    @inlinable @inline(__always) set { _registerWrite(address: 0xBD, value: newValue) }
+  public static var `twamr`: Twamr {
+    get { _registerRead(address: 0xBD) }
+    set { _registerWrite(address: 0xBD, value: newValue) }
   }
 
   /// TWI (Slave) Address Mask Register (0xBD)
@@ -290,31 +290,31 @@ extension ATmega328P.Twi {
     public var registerValue: UInt8
 
     /// Initializes a new instance of the Twamr register.
-    @inlinable @inline(__always) public init(registerValue: UInt8) {
+    public init(registerValue: UInt8) {
       self.registerValue = registerValue
     }
 
     /// TWAM
-    @inlinable @inline(__always) public var `twam`: UInt8 {
-      @inlinable @inline(__always) get { .init(bitfieldValue: UInt8.BitfieldType((registerValue & 0xFE) >> 1)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0xFE) | (Twamr.RegisterType(newValue.bitfieldValue) << 1) }
+    public var `twam`: UInt8 {
+      get { .init(bitfieldValue: UInt8.BitfieldType((registerValue & 0xFE) >> 1)) }
+      set { registerValue = (registerValue & ~0xFE) | (Twamr.RegisterType(newValue.bitfieldValue) << 1) }
     }
   }
 }
 
 extension ATmega328P.Twi {
   /// TWI Bit Rate register (0xB8)
-  @inlinable @inline(__always) public static var `twbr`: UInt8 {
-    @inlinable @inline(__always) get { _registerRead(address: 0xB8) & 0xFF }
-    @inlinable @inline(__always) set { _registerWrite(address: 0xB8, value: newValue & 0xFF) }
+  public static var `twbr`: UInt8 {
+    get { _registerRead(address: 0xB8) & 0xFF }
+    set { _registerWrite(address: 0xB8, value: newValue & 0xFF) }
   }
 }
 
 extension ATmega328P.Twi {
   /// TWI Control Register (0xBC)
-  @inlinable @inline(__always) public static var `twcr`: Twcr {
-    @inlinable @inline(__always) get { _registerRead(address: 0xBC) }
-    @inlinable @inline(__always) set { _registerWrite(address: 0xBC, value: newValue) }
+  public static var `twcr`: Twcr {
+    get { _registerRead(address: 0xBC) }
+    set { _registerWrite(address: 0xBC, value: newValue) }
   }
 
   /// TWI Control Register (0xBC)
@@ -323,59 +323,59 @@ extension ATmega328P.Twi {
     public var registerValue: UInt8
 
     /// Initializes a new instance of the Twcr register.
-    @inlinable @inline(__always) public init(registerValue: UInt8) {
+    public init(registerValue: UInt8) {
       self.registerValue = registerValue
     }
 
     /// TWI Interrupt Flag
-    @inlinable @inline(__always) public var `twint`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x80) >> 7)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x80) | (Twcr.RegisterType(newValue.bitfieldValue) << 7) }
+    public var `twint`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x80) >> 7)) }
+      set { registerValue = (registerValue & ~0x80) | (Twcr.RegisterType(newValue.bitfieldValue) << 7) }
     }
 
     /// TWI Enable Acknowledge Bit
-    @inlinable @inline(__always) public var `twea`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x40) >> 6)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x40) | (Twcr.RegisterType(newValue.bitfieldValue) << 6) }
+    public var `twea`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x40) >> 6)) }
+      set { registerValue = (registerValue & ~0x40) | (Twcr.RegisterType(newValue.bitfieldValue) << 6) }
     }
 
     /// TWI Start Condition Bit
-    @inlinable @inline(__always) public var `twsta`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x20) >> 5)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x20) | (Twcr.RegisterType(newValue.bitfieldValue) << 5) }
+    public var `twsta`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x20) >> 5)) }
+      set { registerValue = (registerValue & ~0x20) | (Twcr.RegisterType(newValue.bitfieldValue) << 5) }
     }
 
     /// TWI Stop Condition Bit
-    @inlinable @inline(__always) public var `twsto`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x10) >> 4)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x10) | (Twcr.RegisterType(newValue.bitfieldValue) << 4) }
+    public var `twsto`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x10) >> 4)) }
+      set { registerValue = (registerValue & ~0x10) | (Twcr.RegisterType(newValue.bitfieldValue) << 4) }
     }
 
     /// TWI Write Collition Flag
-    @inlinable @inline(__always) public var `twwc`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x8) >> 3)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x8) | (Twcr.RegisterType(newValue.bitfieldValue) << 3) }
+    public var `twwc`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x8) >> 3)) }
+      set { registerValue = (registerValue & ~0x8) | (Twcr.RegisterType(newValue.bitfieldValue) << 3) }
     }
 
     /// TWI Enable Bit
-    @inlinable @inline(__always) public var `twen`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x4) >> 2)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x4) | (Twcr.RegisterType(newValue.bitfieldValue) << 2) }
+    public var `twen`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x4) >> 2)) }
+      set { registerValue = (registerValue & ~0x4) | (Twcr.RegisterType(newValue.bitfieldValue) << 2) }
     }
 
     /// TWI Interrupt Enable
-    @inlinable @inline(__always) public var `twie`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x1) >> 0)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x1) | (Twcr.RegisterType(newValue.bitfieldValue) << 0) }
+    public var `twie`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x1) >> 0)) }
+      set { registerValue = (registerValue & ~0x1) | (Twcr.RegisterType(newValue.bitfieldValue) << 0) }
     }
   }
 }
 
 extension ATmega328P.Twi {
   /// TWI Status Register (0xB9)
-  @inlinable @inline(__always) public static var `twsr`: Twsr {
-    @inlinable @inline(__always) get { _registerRead(address: 0xB9) }
-    @inlinable @inline(__always) set { _registerWrite(address: 0xB9, value: newValue) }
+  public static var `twsr`: Twsr {
+    get { _registerRead(address: 0xB9) }
+    set { _registerWrite(address: 0xB9, value: newValue) }
   }
 
   /// TWI Status Register (0xB9)
@@ -384,20 +384,20 @@ extension ATmega328P.Twi {
     public var registerValue: UInt8
 
     /// Initializes a new instance of the Twsr register.
-    @inlinable @inline(__always) public init(registerValue: UInt8) {
+    public init(registerValue: UInt8) {
       self.registerValue = registerValue
     }
 
     /// TWI Status
-    @inlinable @inline(__always) public var `tws3`: UInt8 {
-      @inlinable @inline(__always) get { .init(bitfieldValue: UInt8.BitfieldType((registerValue & 0xF8) >> 3)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0xF8) | (Twsr.RegisterType(newValue.bitfieldValue) << 3) }
+    public var `tws3`: UInt8 {
+      get { .init(bitfieldValue: UInt8.BitfieldType((registerValue & 0xF8) >> 3)) }
+      set { registerValue = (registerValue & ~0xF8) | (Twsr.RegisterType(newValue.bitfieldValue) << 3) }
     }
 
     /// TWI Prescaler
-    @inlinable @inline(__always) public var `twps`: CommTwiPresacle {
-      @inlinable @inline(__always) get { .init(bitfieldValue: CommTwiPresacle.BitfieldType((registerValue & 0x3) >> 0)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x3) | (Twsr.RegisterType(newValue.bitfieldValue) << 0) }
+    public var `twps`: CommTwiPresacle {
+      get { .init(bitfieldValue: CommTwiPresacle.BitfieldType((registerValue & 0x3) >> 0)) }
+      set { registerValue = (registerValue & ~0x3) | (Twsr.RegisterType(newValue.bitfieldValue) << 0) }
     }
 
     /// COMM_TWI_PRESACLE
@@ -419,17 +419,17 @@ extension ATmega328P.Twi {
 
 extension ATmega328P.Twi {
   /// TWI Data register (0xBB)
-  @inlinable @inline(__always) public static var `twdr`: UInt8 {
-    @inlinable @inline(__always) get { _registerRead(address: 0xBB) & 0xFF }
-    @inlinable @inline(__always) set { _registerWrite(address: 0xBB, value: newValue & 0xFF) }
+  public static var `twdr`: UInt8 {
+    get { _registerRead(address: 0xBB) & 0xFF }
+    set { _registerWrite(address: 0xBB, value: newValue & 0xFF) }
   }
 }
 
 extension ATmega328P.Twi {
   /// TWI (Slave) Address register (0xBA)
-  @inlinable @inline(__always) public static var `twar`: Twar {
-    @inlinable @inline(__always) get { _registerRead(address: 0xBA) }
-    @inlinable @inline(__always) set { _registerWrite(address: 0xBA, value: newValue) }
+  public static var `twar`: Twar {
+    get { _registerRead(address: 0xBA) }
+    set { _registerWrite(address: 0xBA, value: newValue) }
   }
 
   /// TWI (Slave) Address register (0xBA)
@@ -438,20 +438,20 @@ extension ATmega328P.Twi {
     public var registerValue: UInt8
 
     /// Initializes a new instance of the Twar register.
-    @inlinable @inline(__always) public init(registerValue: UInt8) {
+    public init(registerValue: UInt8) {
       self.registerValue = registerValue
     }
 
     /// TWI (Slave) Address register Bits
-    @inlinable @inline(__always) public var `twa`: UInt8 {
-      @inlinable @inline(__always) get { .init(bitfieldValue: UInt8.BitfieldType((registerValue & 0xFE) >> 1)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0xFE) | (Twar.RegisterType(newValue.bitfieldValue) << 1) }
+    public var `twa`: UInt8 {
+      get { .init(bitfieldValue: UInt8.BitfieldType((registerValue & 0xFE) >> 1)) }
+      set { registerValue = (registerValue & ~0xFE) | (Twar.RegisterType(newValue.bitfieldValue) << 1) }
     }
 
     /// TWI General Call Recognition Enable Bit
-    @inlinable @inline(__always) public var `twgce`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x1) >> 0)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x1) | (Twar.RegisterType(newValue.bitfieldValue) << 0) }
+    public var `twgce`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x1) >> 0)) }
+      set { registerValue = (registerValue & ~0x1) | (Twar.RegisterType(newValue.bitfieldValue) << 0) }
     }
   }
 }
@@ -486,9 +486,9 @@ extension ATmega328P {
 
 extension ATmega328P.Tc1 {
   /// Timer/Counter Interrupt Mask Register (0x6F)
-  @inlinable @inline(__always) public static var `timsk1`: Timsk1 {
-    @inlinable @inline(__always) get { _registerRead(address: 0x6F) }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x6F, value: newValue) }
+  public static var `timsk1`: Timsk1 {
+    get { _registerRead(address: 0x6F) }
+    set { _registerWrite(address: 0x6F, value: newValue) }
   }
 
   /// Timer/Counter Interrupt Mask Register (0x6F)
@@ -497,41 +497,41 @@ extension ATmega328P.Tc1 {
     public var registerValue: UInt8
 
     /// Initializes a new instance of the Timsk1 register.
-    @inlinable @inline(__always) public init(registerValue: UInt8) {
+    public init(registerValue: UInt8) {
       self.registerValue = registerValue
     }
 
     /// Timer/Counter1 Input Capture Interrupt Enable
-    @inlinable @inline(__always) public var `icie1`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x20) >> 5)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x20) | (Timsk1.RegisterType(newValue.bitfieldValue) << 5) }
+    public var `icie1`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x20) >> 5)) }
+      set { registerValue = (registerValue & ~0x20) | (Timsk1.RegisterType(newValue.bitfieldValue) << 5) }
     }
 
     /// Timer/Counter1 Output CompareB Match Interrupt Enable
-    @inlinable @inline(__always) public var `ocie1b`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x4) >> 2)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x4) | (Timsk1.RegisterType(newValue.bitfieldValue) << 2) }
+    public var `ocie1b`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x4) >> 2)) }
+      set { registerValue = (registerValue & ~0x4) | (Timsk1.RegisterType(newValue.bitfieldValue) << 2) }
     }
 
     /// Timer/Counter1 Output CompareA Match Interrupt Enable
-    @inlinable @inline(__always) public var `ocie1a`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x2) >> 1)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x2) | (Timsk1.RegisterType(newValue.bitfieldValue) << 1) }
+    public var `ocie1a`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x2) >> 1)) }
+      set { registerValue = (registerValue & ~0x2) | (Timsk1.RegisterType(newValue.bitfieldValue) << 1) }
     }
 
     /// Timer/Counter1 Overflow Interrupt Enable
-    @inlinable @inline(__always) public var `toie1`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x1) >> 0)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x1) | (Timsk1.RegisterType(newValue.bitfieldValue) << 0) }
+    public var `toie1`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x1) >> 0)) }
+      set { registerValue = (registerValue & ~0x1) | (Timsk1.RegisterType(newValue.bitfieldValue) << 0) }
     }
   }
 }
 
 extension ATmega328P.Tc1 {
   /// Timer/Counter Interrupt Flag register (0x36)
-  @inlinable @inline(__always) public static var `tifr1`: Tifr1 {
-    @inlinable @inline(__always) get { _registerRead(address: 0x36) }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x36, value: newValue) }
+  public static var `tifr1`: Tifr1 {
+    get { _registerRead(address: 0x36) }
+    set { _registerWrite(address: 0x36, value: newValue) }
   }
 
   /// Timer/Counter Interrupt Flag register (0x36)
@@ -540,41 +540,41 @@ extension ATmega328P.Tc1 {
     public var registerValue: UInt8
 
     /// Initializes a new instance of the Tifr1 register.
-    @inlinable @inline(__always) public init(registerValue: UInt8) {
+    public init(registerValue: UInt8) {
       self.registerValue = registerValue
     }
 
     /// Input Capture Flag 1
-    @inlinable @inline(__always) public var `icf1`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x20) >> 5)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x20) | (Tifr1.RegisterType(newValue.bitfieldValue) << 5) }
+    public var `icf1`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x20) >> 5)) }
+      set { registerValue = (registerValue & ~0x20) | (Tifr1.RegisterType(newValue.bitfieldValue) << 5) }
     }
 
     /// Output Compare Flag 1B
-    @inlinable @inline(__always) public var `ocf1b`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x4) >> 2)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x4) | (Tifr1.RegisterType(newValue.bitfieldValue) << 2) }
+    public var `ocf1b`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x4) >> 2)) }
+      set { registerValue = (registerValue & ~0x4) | (Tifr1.RegisterType(newValue.bitfieldValue) << 2) }
     }
 
     /// Output Compare Flag 1A
-    @inlinable @inline(__always) public var `ocf1a`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x2) >> 1)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x2) | (Tifr1.RegisterType(newValue.bitfieldValue) << 1) }
+    public var `ocf1a`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x2) >> 1)) }
+      set { registerValue = (registerValue & ~0x2) | (Tifr1.RegisterType(newValue.bitfieldValue) << 1) }
     }
 
     /// Timer/Counter1 Overflow Flag
-    @inlinable @inline(__always) public var `tov1`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x1) >> 0)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x1) | (Tifr1.RegisterType(newValue.bitfieldValue) << 0) }
+    public var `tov1`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x1) >> 0)) }
+      set { registerValue = (registerValue & ~0x1) | (Tifr1.RegisterType(newValue.bitfieldValue) << 0) }
     }
   }
 }
 
 extension ATmega328P.Tc1 {
   /// Timer/Counter1 Control Register A (0x80)
-  @inlinable @inline(__always) public static var `tccr1a`: Tccr1A {
-    @inlinable @inline(__always) get { _registerRead(address: 0x80) }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x80, value: newValue) }
+  public static var `tccr1a`: Tccr1A {
+    get { _registerRead(address: 0x80) }
+    set { _registerWrite(address: 0x80, value: newValue) }
   }
 
   /// Timer/Counter1 Control Register A (0x80)
@@ -583,35 +583,35 @@ extension ATmega328P.Tc1 {
     public var registerValue: UInt8
 
     /// Initializes a new instance of the Tccr1A register.
-    @inlinable @inline(__always) public init(registerValue: UInt8) {
+    public init(registerValue: UInt8) {
       self.registerValue = registerValue
     }
 
     /// Compare Output Mode 1A, bits
-    @inlinable @inline(__always) public var `com1a`: UInt8 {
-      @inlinable @inline(__always) get { .init(bitfieldValue: UInt8.BitfieldType((registerValue & 0xC0) >> 6)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0xC0) | (Tccr1A.RegisterType(newValue.bitfieldValue) << 6) }
+    public var `com1a`: UInt8 {
+      get { .init(bitfieldValue: UInt8.BitfieldType((registerValue & 0xC0) >> 6)) }
+      set { registerValue = (registerValue & ~0xC0) | (Tccr1A.RegisterType(newValue.bitfieldValue) << 6) }
     }
 
     /// Compare Output Mode 1B, bits
-    @inlinable @inline(__always) public var `com1b`: UInt8 {
-      @inlinable @inline(__always) get { .init(bitfieldValue: UInt8.BitfieldType((registerValue & 0x30) >> 4)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x30) | (Tccr1A.RegisterType(newValue.bitfieldValue) << 4) }
+    public var `com1b`: UInt8 {
+      get { .init(bitfieldValue: UInt8.BitfieldType((registerValue & 0x30) >> 4)) }
+      set { registerValue = (registerValue & ~0x30) | (Tccr1A.RegisterType(newValue.bitfieldValue) << 4) }
     }
 
     /// Waveform Generation Mode
-    @inlinable @inline(__always) public var `wgm1`: UInt8 {
-      @inlinable @inline(__always) get { .init(bitfieldValue: UInt8.BitfieldType((registerValue & 0x3) >> 0)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x3) | (Tccr1A.RegisterType(newValue.bitfieldValue) << 0) }
+    public var `wgm1`: UInt8 {
+      get { .init(bitfieldValue: UInt8.BitfieldType((registerValue & 0x3) >> 0)) }
+      set { registerValue = (registerValue & ~0x3) | (Tccr1A.RegisterType(newValue.bitfieldValue) << 0) }
     }
   }
 }
 
 extension ATmega328P.Tc1 {
   /// Timer/Counter1 Control Register B (0x81)
-  @inlinable @inline(__always) public static var `tccr1b`: Tccr1B {
-    @inlinable @inline(__always) get { _registerRead(address: 0x81) }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x81, value: newValue) }
+  public static var `tccr1b`: Tccr1B {
+    get { _registerRead(address: 0x81) }
+    set { _registerWrite(address: 0x81, value: newValue) }
   }
 
   /// Timer/Counter1 Control Register B (0x81)
@@ -620,32 +620,32 @@ extension ATmega328P.Tc1 {
     public var registerValue: UInt8
 
     /// Initializes a new instance of the Tccr1B register.
-    @inlinable @inline(__always) public init(registerValue: UInt8) {
+    public init(registerValue: UInt8) {
       self.registerValue = registerValue
     }
 
     /// Input Capture 1 Noise Canceler
-    @inlinable @inline(__always) public var `icnc1`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x80) >> 7)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x80) | (Tccr1B.RegisterType(newValue.bitfieldValue) << 7) }
+    public var `icnc1`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x80) >> 7)) }
+      set { registerValue = (registerValue & ~0x80) | (Tccr1B.RegisterType(newValue.bitfieldValue) << 7) }
     }
 
     /// Input Capture 1 Edge Select
-    @inlinable @inline(__always) public var `ices1`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x40) >> 6)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x40) | (Tccr1B.RegisterType(newValue.bitfieldValue) << 6) }
+    public var `ices1`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x40) >> 6)) }
+      set { registerValue = (registerValue & ~0x40) | (Tccr1B.RegisterType(newValue.bitfieldValue) << 6) }
     }
 
     /// Waveform Generation Mode
-    @inlinable @inline(__always) public var `wgm12`: UInt8 {
-      @inlinable @inline(__always) get { .init(bitfieldValue: UInt8.BitfieldType((registerValue & 0x18) >> 3)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x18) | (Tccr1B.RegisterType(newValue.bitfieldValue) << 3) }
+    public var `wgm12`: UInt8 {
+      get { .init(bitfieldValue: UInt8.BitfieldType((registerValue & 0x18) >> 3)) }
+      set { registerValue = (registerValue & ~0x18) | (Tccr1B.RegisterType(newValue.bitfieldValue) << 3) }
     }
 
     /// Prescaler source of Timer/Counter 1
-    @inlinable @inline(__always) public var `cs1`: ClkSel3BitExt {
-      @inlinable @inline(__always) get { .init(bitfieldValue: ClkSel3BitExt.BitfieldType((registerValue & 0x7) >> 0)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x7) | (Tccr1B.RegisterType(newValue.bitfieldValue) << 0) }
+    public var `cs1`: ClkSel3BitExt {
+      get { .init(bitfieldValue: ClkSel3BitExt.BitfieldType((registerValue & 0x7) >> 0)) }
+      set { registerValue = (registerValue & ~0x7) | (Tccr1B.RegisterType(newValue.bitfieldValue) << 0) }
     }
 
     /// CLK_SEL_3BIT_EXT
@@ -679,9 +679,9 @@ extension ATmega328P.Tc1 {
 
 extension ATmega328P.Tc1 {
   /// Timer/Counter1 Control Register C (0x82)
-  @inlinable @inline(__always) public static var `tccr1c`: Tccr1C {
-    @inlinable @inline(__always) get { _registerRead(address: 0x82) }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x82, value: newValue) }
+  public static var `tccr1c`: Tccr1C {
+    get { _registerRead(address: 0x82) }
+    set { _registerWrite(address: 0x82, value: newValue) }
   }
 
   /// Timer/Counter1 Control Register C (0x82)
@@ -690,61 +690,61 @@ extension ATmega328P.Tc1 {
     public var registerValue: UInt8
 
     /// Initializes a new instance of the Tccr1C register.
-    @inlinable @inline(__always) public init(registerValue: UInt8) {
+    public init(registerValue: UInt8) {
       self.registerValue = registerValue
     }
 
     /// FOC1A
-    @inlinable @inline(__always) public var `foc1a`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x80) >> 7)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x80) | (Tccr1C.RegisterType(newValue.bitfieldValue) << 7) }
+    public var `foc1a`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x80) >> 7)) }
+      set { registerValue = (registerValue & ~0x80) | (Tccr1C.RegisterType(newValue.bitfieldValue) << 7) }
     }
 
     /// FOC1B
-    @inlinable @inline(__always) public var `foc1b`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x40) >> 6)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x40) | (Tccr1C.RegisterType(newValue.bitfieldValue) << 6) }
+    public var `foc1b`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x40) >> 6)) }
+      set { registerValue = (registerValue & ~0x40) | (Tccr1C.RegisterType(newValue.bitfieldValue) << 6) }
     }
   }
 }
 
 extension ATmega328P.Tc1 {
   /// Timer/Counter1  Bytes (0x84)
-  @inlinable @inline(__always) public static var `tcnt1`: UInt16 {
-    @inlinable @inline(__always) get { _registerRead(address: 0x84) & 0xFFFF }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x84, value: newValue & 0xFFFF) }
+  public static var `tcnt1`: UInt16 {
+    get { _registerRead(address: 0x84) & 0xFFFF }
+    set { _registerWrite(address: 0x84, value: newValue & 0xFFFF) }
   }
 }
 
 extension ATmega328P.Tc1 {
   /// Timer/Counter1 Output Compare Register  Bytes (0x88)
-  @inlinable @inline(__always) public static var `ocr1a`: UInt16 {
-    @inlinable @inline(__always) get { _registerRead(address: 0x88) & 0xFFFF }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x88, value: newValue & 0xFFFF) }
+  public static var `ocr1a`: UInt16 {
+    get { _registerRead(address: 0x88) & 0xFFFF }
+    set { _registerWrite(address: 0x88, value: newValue & 0xFFFF) }
   }
 }
 
 extension ATmega328P.Tc1 {
   /// Timer/Counter1 Output Compare Register  Bytes (0x8A)
-  @inlinable @inline(__always) public static var `ocr1b`: UInt16 {
-    @inlinable @inline(__always) get { _registerRead(address: 0x8A) & 0xFFFF }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x8A, value: newValue & 0xFFFF) }
+  public static var `ocr1b`: UInt16 {
+    get { _registerRead(address: 0x8A) & 0xFFFF }
+    set { _registerWrite(address: 0x8A, value: newValue & 0xFFFF) }
   }
 }
 
 extension ATmega328P.Tc1 {
   /// Timer/Counter1 Input Capture Register  Bytes (0x86)
-  @inlinable @inline(__always) public static var `icr1`: UInt16 {
-    @inlinable @inline(__always) get { _registerRead(address: 0x86) & 0xFFFF }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x86, value: newValue & 0xFFFF) }
+  public static var `icr1`: UInt16 {
+    get { _registerRead(address: 0x86) & 0xFFFF }
+    set { _registerWrite(address: 0x86, value: newValue & 0xFFFF) }
   }
 }
 
 extension ATmega328P.Tc1 {
   /// General Timer/Counter Control Register (0x43)
-  @inlinable @inline(__always) public static var `gtccr`: Gtccr {
-    @inlinable @inline(__always) get { _registerRead(address: 0x43) }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x43, value: newValue) }
+  public static var `gtccr`: Gtccr {
+    get { _registerRead(address: 0x43) }
+    set { _registerWrite(address: 0x43, value: newValue) }
   }
 
   /// General Timer/Counter Control Register (0x43)
@@ -753,20 +753,20 @@ extension ATmega328P.Tc1 {
     public var registerValue: UInt8
 
     /// Initializes a new instance of the Gtccr register.
-    @inlinable @inline(__always) public init(registerValue: UInt8) {
+    public init(registerValue: UInt8) {
       self.registerValue = registerValue
     }
 
     /// Timer/Counter Synchronization Mode
-    @inlinable @inline(__always) public var `tsm`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x80) >> 7)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x80) | (Gtccr.RegisterType(newValue.bitfieldValue) << 7) }
+    public var `tsm`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x80) >> 7)) }
+      set { registerValue = (registerValue & ~0x80) | (Gtccr.RegisterType(newValue.bitfieldValue) << 7) }
     }
 
     /// Prescaler Reset Timer/Counter1 and Timer/Counter0
-    @inlinable @inline(__always) public var `psrsync`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x1) >> 0)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x1) | (Gtccr.RegisterType(newValue.bitfieldValue) << 0) }
+    public var `psrsync`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x1) >> 0)) }
+      set { registerValue = (registerValue & ~0x1) | (Gtccr.RegisterType(newValue.bitfieldValue) << 0) }
     }
   }
 }
@@ -811,9 +811,9 @@ extension ATmega328P {
 
 extension ATmega328P.Tc2 {
   /// Timer/Counter Interrupt Mask register (0x70)
-  @inlinable @inline(__always) public static var `timsk2`: Timsk2 {
-    @inlinable @inline(__always) get { _registerRead(address: 0x70) }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x70, value: newValue) }
+  public static var `timsk2`: Timsk2 {
+    get { _registerRead(address: 0x70) }
+    set { _registerWrite(address: 0x70, value: newValue) }
   }
 
   /// Timer/Counter Interrupt Mask register (0x70)
@@ -822,35 +822,35 @@ extension ATmega328P.Tc2 {
     public var registerValue: UInt8
 
     /// Initializes a new instance of the Timsk2 register.
-    @inlinable @inline(__always) public init(registerValue: UInt8) {
+    public init(registerValue: UInt8) {
       self.registerValue = registerValue
     }
 
     /// Timer/Counter2 Output Compare Match B Interrupt Enable
-    @inlinable @inline(__always) public var `ocie2b`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x4) >> 2)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x4) | (Timsk2.RegisterType(newValue.bitfieldValue) << 2) }
+    public var `ocie2b`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x4) >> 2)) }
+      set { registerValue = (registerValue & ~0x4) | (Timsk2.RegisterType(newValue.bitfieldValue) << 2) }
     }
 
     /// Timer/Counter2 Output Compare Match A Interrupt Enable
-    @inlinable @inline(__always) public var `ocie2a`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x2) >> 1)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x2) | (Timsk2.RegisterType(newValue.bitfieldValue) << 1) }
+    public var `ocie2a`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x2) >> 1)) }
+      set { registerValue = (registerValue & ~0x2) | (Timsk2.RegisterType(newValue.bitfieldValue) << 1) }
     }
 
     /// Timer/Counter2 Overflow Interrupt Enable
-    @inlinable @inline(__always) public var `toie2`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x1) >> 0)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x1) | (Timsk2.RegisterType(newValue.bitfieldValue) << 0) }
+    public var `toie2`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x1) >> 0)) }
+      set { registerValue = (registerValue & ~0x1) | (Timsk2.RegisterType(newValue.bitfieldValue) << 0) }
     }
   }
 }
 
 extension ATmega328P.Tc2 {
   /// Timer/Counter Interrupt Flag Register (0x37)
-  @inlinable @inline(__always) public static var `tifr2`: Tifr2 {
-    @inlinable @inline(__always) get { _registerRead(address: 0x37) }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x37, value: newValue) }
+  public static var `tifr2`: Tifr2 {
+    get { _registerRead(address: 0x37) }
+    set { _registerWrite(address: 0x37, value: newValue) }
   }
 
   /// Timer/Counter Interrupt Flag Register (0x37)
@@ -859,35 +859,35 @@ extension ATmega328P.Tc2 {
     public var registerValue: UInt8
 
     /// Initializes a new instance of the Tifr2 register.
-    @inlinable @inline(__always) public init(registerValue: UInt8) {
+    public init(registerValue: UInt8) {
       self.registerValue = registerValue
     }
 
     /// Output Compare Flag 2B
-    @inlinable @inline(__always) public var `ocf2b`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x4) >> 2)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x4) | (Tifr2.RegisterType(newValue.bitfieldValue) << 2) }
+    public var `ocf2b`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x4) >> 2)) }
+      set { registerValue = (registerValue & ~0x4) | (Tifr2.RegisterType(newValue.bitfieldValue) << 2) }
     }
 
     /// Output Compare Flag 2A
-    @inlinable @inline(__always) public var `ocf2a`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x2) >> 1)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x2) | (Tifr2.RegisterType(newValue.bitfieldValue) << 1) }
+    public var `ocf2a`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x2) >> 1)) }
+      set { registerValue = (registerValue & ~0x2) | (Tifr2.RegisterType(newValue.bitfieldValue) << 1) }
     }
 
     /// Timer/Counter2 Overflow Flag
-    @inlinable @inline(__always) public var `tov2`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x1) >> 0)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x1) | (Tifr2.RegisterType(newValue.bitfieldValue) << 0) }
+    public var `tov2`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x1) >> 0)) }
+      set { registerValue = (registerValue & ~0x1) | (Tifr2.RegisterType(newValue.bitfieldValue) << 0) }
     }
   }
 }
 
 extension ATmega328P.Tc2 {
   /// Timer/Counter2 Control Register A (0xB0)
-  @inlinable @inline(__always) public static var `tccr2a`: Tccr2A {
-    @inlinable @inline(__always) get { _registerRead(address: 0xB0) }
-    @inlinable @inline(__always) set { _registerWrite(address: 0xB0, value: newValue) }
+  public static var `tccr2a`: Tccr2A {
+    get { _registerRead(address: 0xB0) }
+    set { _registerWrite(address: 0xB0, value: newValue) }
   }
 
   /// Timer/Counter2 Control Register A (0xB0)
@@ -896,35 +896,35 @@ extension ATmega328P.Tc2 {
     public var registerValue: UInt8
 
     /// Initializes a new instance of the Tccr2A register.
-    @inlinable @inline(__always) public init(registerValue: UInt8) {
+    public init(registerValue: UInt8) {
       self.registerValue = registerValue
     }
 
     /// Compare Output Mode bits
-    @inlinable @inline(__always) public var `com2a`: UInt8 {
-      @inlinable @inline(__always) get { .init(bitfieldValue: UInt8.BitfieldType((registerValue & 0xC0) >> 6)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0xC0) | (Tccr2A.RegisterType(newValue.bitfieldValue) << 6) }
+    public var `com2a`: UInt8 {
+      get { .init(bitfieldValue: UInt8.BitfieldType((registerValue & 0xC0) >> 6)) }
+      set { registerValue = (registerValue & ~0xC0) | (Tccr2A.RegisterType(newValue.bitfieldValue) << 6) }
     }
 
     /// Compare Output Mode bits
-    @inlinable @inline(__always) public var `com2b`: UInt8 {
-      @inlinable @inline(__always) get { .init(bitfieldValue: UInt8.BitfieldType((registerValue & 0x30) >> 4)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x30) | (Tccr2A.RegisterType(newValue.bitfieldValue) << 4) }
+    public var `com2b`: UInt8 {
+      get { .init(bitfieldValue: UInt8.BitfieldType((registerValue & 0x30) >> 4)) }
+      set { registerValue = (registerValue & ~0x30) | (Tccr2A.RegisterType(newValue.bitfieldValue) << 4) }
     }
 
     /// Waveform Genration Mode
-    @inlinable @inline(__always) public var `wgm2`: UInt8 {
-      @inlinable @inline(__always) get { .init(bitfieldValue: UInt8.BitfieldType((registerValue & 0x3) >> 0)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x3) | (Tccr2A.RegisterType(newValue.bitfieldValue) << 0) }
+    public var `wgm2`: UInt8 {
+      get { .init(bitfieldValue: UInt8.BitfieldType((registerValue & 0x3) >> 0)) }
+      set { registerValue = (registerValue & ~0x3) | (Tccr2A.RegisterType(newValue.bitfieldValue) << 0) }
     }
   }
 }
 
 extension ATmega328P.Tc2 {
   /// Timer/Counter2 Control Register B (0xB1)
-  @inlinable @inline(__always) public static var `tccr2b`: Tccr2B {
-    @inlinable @inline(__always) get { _registerRead(address: 0xB1) }
-    @inlinable @inline(__always) set { _registerWrite(address: 0xB1, value: newValue) }
+  public static var `tccr2b`: Tccr2B {
+    get { _registerRead(address: 0xB1) }
+    set { _registerWrite(address: 0xB1, value: newValue) }
   }
 
   /// Timer/Counter2 Control Register B (0xB1)
@@ -933,32 +933,32 @@ extension ATmega328P.Tc2 {
     public var registerValue: UInt8
 
     /// Initializes a new instance of the Tccr2B register.
-    @inlinable @inline(__always) public init(registerValue: UInt8) {
+    public init(registerValue: UInt8) {
       self.registerValue = registerValue
     }
 
     /// Force Output Compare A
-    @inlinable @inline(__always) public var `foc2a`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x80) >> 7)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x80) | (Tccr2B.RegisterType(newValue.bitfieldValue) << 7) }
+    public var `foc2a`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x80) >> 7)) }
+      set { registerValue = (registerValue & ~0x80) | (Tccr2B.RegisterType(newValue.bitfieldValue) << 7) }
     }
 
     /// Force Output Compare B
-    @inlinable @inline(__always) public var `foc2b`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x40) >> 6)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x40) | (Tccr2B.RegisterType(newValue.bitfieldValue) << 6) }
+    public var `foc2b`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x40) >> 6)) }
+      set { registerValue = (registerValue & ~0x40) | (Tccr2B.RegisterType(newValue.bitfieldValue) << 6) }
     }
 
     /// Waveform Generation Mode
-    @inlinable @inline(__always) public var `wgm22`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x8) >> 3)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x8) | (Tccr2B.RegisterType(newValue.bitfieldValue) << 3) }
+    public var `wgm22`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x8) >> 3)) }
+      set { registerValue = (registerValue & ~0x8) | (Tccr2B.RegisterType(newValue.bitfieldValue) << 3) }
     }
 
     /// Clock Select bits
-    @inlinable @inline(__always) public var `cs2`: ClkSel3Bit {
-      @inlinable @inline(__always) get { .init(bitfieldValue: ClkSel3Bit.BitfieldType((registerValue & 0x7) >> 0)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x7) | (Tccr2B.RegisterType(newValue.bitfieldValue) << 0) }
+    public var `cs2`: ClkSel3Bit {
+      get { .init(bitfieldValue: ClkSel3Bit.BitfieldType((registerValue & 0x7) >> 0)) }
+      set { registerValue = (registerValue & ~0x7) | (Tccr2B.RegisterType(newValue.bitfieldValue) << 0) }
     }
 
     /// CLK_SEL_3BIT
@@ -992,33 +992,33 @@ extension ATmega328P.Tc2 {
 
 extension ATmega328P.Tc2 {
   /// Timer/Counter2 (0xB2)
-  @inlinable @inline(__always) public static var `tcnt2`: UInt8 {
-    @inlinable @inline(__always) get { _registerRead(address: 0xB2) & 0xFF }
-    @inlinable @inline(__always) set { _registerWrite(address: 0xB2, value: newValue & 0xFF) }
+  public static var `tcnt2`: UInt8 {
+    get { _registerRead(address: 0xB2) & 0xFF }
+    set { _registerWrite(address: 0xB2, value: newValue & 0xFF) }
   }
 }
 
 extension ATmega328P.Tc2 {
   /// Timer/Counter2 Output Compare Register B (0xB4)
-  @inlinable @inline(__always) public static var `ocr2b`: UInt8 {
-    @inlinable @inline(__always) get { _registerRead(address: 0xB4) & 0xFF }
-    @inlinable @inline(__always) set { _registerWrite(address: 0xB4, value: newValue & 0xFF) }
+  public static var `ocr2b`: UInt8 {
+    get { _registerRead(address: 0xB4) & 0xFF }
+    set { _registerWrite(address: 0xB4, value: newValue & 0xFF) }
   }
 }
 
 extension ATmega328P.Tc2 {
   /// Timer/Counter2 Output Compare Register A (0xB3)
-  @inlinable @inline(__always) public static var `ocr2a`: UInt8 {
-    @inlinable @inline(__always) get { _registerRead(address: 0xB3) & 0xFF }
-    @inlinable @inline(__always) set { _registerWrite(address: 0xB3, value: newValue & 0xFF) }
+  public static var `ocr2a`: UInt8 {
+    get { _registerRead(address: 0xB3) & 0xFF }
+    set { _registerWrite(address: 0xB3, value: newValue & 0xFF) }
   }
 }
 
 extension ATmega328P.Tc2 {
   /// Asynchronous Status Register (0xB6)
-  @inlinable @inline(__always) public static var `assr`: Assr {
-    @inlinable @inline(__always) get { _registerRead(address: 0xB6) }
-    @inlinable @inline(__always) set { _registerWrite(address: 0xB6, value: newValue) }
+  public static var `assr`: Assr {
+    get { _registerRead(address: 0xB6) }
+    set { _registerWrite(address: 0xB6, value: newValue) }
   }
 
   /// Asynchronous Status Register (0xB6)
@@ -1027,59 +1027,59 @@ extension ATmega328P.Tc2 {
     public var registerValue: UInt8
 
     /// Initializes a new instance of the Assr register.
-    @inlinable @inline(__always) public init(registerValue: UInt8) {
+    public init(registerValue: UInt8) {
       self.registerValue = registerValue
     }
 
     /// Enable External Clock Input
-    @inlinable @inline(__always) public var `exclk`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x40) >> 6)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x40) | (Assr.RegisterType(newValue.bitfieldValue) << 6) }
+    public var `exclk`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x40) >> 6)) }
+      set { registerValue = (registerValue & ~0x40) | (Assr.RegisterType(newValue.bitfieldValue) << 6) }
     }
 
     /// Asynchronous Timer/Counter2
-    @inlinable @inline(__always) public var `as2`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x20) >> 5)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x20) | (Assr.RegisterType(newValue.bitfieldValue) << 5) }
+    public var `as2`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x20) >> 5)) }
+      set { registerValue = (registerValue & ~0x20) | (Assr.RegisterType(newValue.bitfieldValue) << 5) }
     }
 
     /// Timer/Counter2 Update Busy
-    @inlinable @inline(__always) public var `tcn2ub`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x10) >> 4)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x10) | (Assr.RegisterType(newValue.bitfieldValue) << 4) }
+    public var `tcn2ub`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x10) >> 4)) }
+      set { registerValue = (registerValue & ~0x10) | (Assr.RegisterType(newValue.bitfieldValue) << 4) }
     }
 
     /// Output Compare Register2 Update Busy
-    @inlinable @inline(__always) public var `ocr2aub`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x8) >> 3)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x8) | (Assr.RegisterType(newValue.bitfieldValue) << 3) }
+    public var `ocr2aub`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x8) >> 3)) }
+      set { registerValue = (registerValue & ~0x8) | (Assr.RegisterType(newValue.bitfieldValue) << 3) }
     }
 
     /// Output Compare Register 2 Update Busy
-    @inlinable @inline(__always) public var `ocr2bub`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x4) >> 2)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x4) | (Assr.RegisterType(newValue.bitfieldValue) << 2) }
+    public var `ocr2bub`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x4) >> 2)) }
+      set { registerValue = (registerValue & ~0x4) | (Assr.RegisterType(newValue.bitfieldValue) << 2) }
     }
 
     /// Timer/Counter Control Register2 Update Busy
-    @inlinable @inline(__always) public var `tcr2aub`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x2) >> 1)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x2) | (Assr.RegisterType(newValue.bitfieldValue) << 1) }
+    public var `tcr2aub`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x2) >> 1)) }
+      set { registerValue = (registerValue & ~0x2) | (Assr.RegisterType(newValue.bitfieldValue) << 1) }
     }
 
     /// Timer/Counter Control Register2 Update Busy
-    @inlinable @inline(__always) public var `tcr2bub`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x1) >> 0)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x1) | (Assr.RegisterType(newValue.bitfieldValue) << 0) }
+    public var `tcr2bub`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x1) >> 0)) }
+      set { registerValue = (registerValue & ~0x1) | (Assr.RegisterType(newValue.bitfieldValue) << 0) }
     }
   }
 }
 
 extension ATmega328P.Tc2 {
   /// General Timer Counter Control register (0x43)
-  @inlinable @inline(__always) public static var `gtccr`: Gtccr {
-    @inlinable @inline(__always) get { _registerRead(address: 0x43) }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x43, value: newValue) }
+  public static var `gtccr`: Gtccr {
+    get { _registerRead(address: 0x43) }
+    set { _registerWrite(address: 0x43, value: newValue) }
   }
 
   /// General Timer Counter Control register (0x43)
@@ -1088,20 +1088,20 @@ extension ATmega328P.Tc2 {
     public var registerValue: UInt8
 
     /// Initializes a new instance of the Gtccr register.
-    @inlinable @inline(__always) public init(registerValue: UInt8) {
+    public init(registerValue: UInt8) {
       self.registerValue = registerValue
     }
 
     /// Timer/Counter Synchronization Mode
-    @inlinable @inline(__always) public var `tsm`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x80) >> 7)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x80) | (Gtccr.RegisterType(newValue.bitfieldValue) << 7) }
+    public var `tsm`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x80) >> 7)) }
+      set { registerValue = (registerValue & ~0x80) | (Gtccr.RegisterType(newValue.bitfieldValue) << 7) }
     }
 
     /// Prescaler Reset Timer/Counter2
-    @inlinable @inline(__always) public var `psrasy`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x2) >> 1)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x2) | (Gtccr.RegisterType(newValue.bitfieldValue) << 1) }
+    public var `psrasy`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x2) >> 1)) }
+      set { registerValue = (registerValue & ~0x2) | (Gtccr.RegisterType(newValue.bitfieldValue) << 1) }
     }
   }
 }
@@ -1146,9 +1146,9 @@ extension ATmega328P {
 
 extension ATmega328P.Adc {
   /// The ADC multiplexer Selection Register (0x7C)
-  @inlinable @inline(__always) public static var `admux`: Admux {
-    @inlinable @inline(__always) get { _registerRead(address: 0x7C) }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x7C, value: newValue) }
+  public static var `admux`: Admux {
+    get { _registerRead(address: 0x7C) }
+    set { _registerWrite(address: 0x7C, value: newValue) }
   }
 
   /// The ADC multiplexer Selection Register (0x7C)
@@ -1157,26 +1157,26 @@ extension ATmega328P.Adc {
     public var registerValue: UInt8
 
     /// Initializes a new instance of the Admux register.
-    @inlinable @inline(__always) public init(registerValue: UInt8) {
+    public init(registerValue: UInt8) {
       self.registerValue = registerValue
     }
 
     /// Reference Selection Bits
-    @inlinable @inline(__always) public var `refs`: AnalogAdcVRef3 {
-      @inlinable @inline(__always) get { .init(bitfieldValue: AnalogAdcVRef3.BitfieldType((registerValue & 0xC0) >> 6)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0xC0) | (Admux.RegisterType(newValue.bitfieldValue) << 6) }
+    public var `refs`: AnalogAdcVRef3 {
+      get { .init(bitfieldValue: AnalogAdcVRef3.BitfieldType((registerValue & 0xC0) >> 6)) }
+      set { registerValue = (registerValue & ~0xC0) | (Admux.RegisterType(newValue.bitfieldValue) << 6) }
     }
 
     /// Left Adjust Result
-    @inlinable @inline(__always) public var `adlar`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x20) >> 5)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x20) | (Admux.RegisterType(newValue.bitfieldValue) << 5) }
+    public var `adlar`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x20) >> 5)) }
+      set { registerValue = (registerValue & ~0x20) | (Admux.RegisterType(newValue.bitfieldValue) << 5) }
     }
 
     /// Analog Channel Selection Bits
-    @inlinable @inline(__always) public var `mux`: AdcMuxSingle {
-      @inlinable @inline(__always) get { .init(bitfieldValue: AdcMuxSingle.BitfieldType((registerValue & 0xF) >> 0)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0xF) | (Admux.RegisterType(newValue.bitfieldValue) << 0) }
+    public var `mux`: AdcMuxSingle {
+      get { .init(bitfieldValue: AdcMuxSingle.BitfieldType((registerValue & 0xF) >> 0)) }
+      set { registerValue = (registerValue & ~0xF) | (Admux.RegisterType(newValue.bitfieldValue) << 0) }
     }
 
     /// ANALOG_ADC_V_REF3
@@ -1231,17 +1231,17 @@ extension ATmega328P.Adc {
 
 extension ATmega328P.Adc {
   /// ADC Data Register  Bytes (0x78)
-  @inlinable @inline(__always) public static var `adc`: UInt16 {
-    @inlinable @inline(__always) get { _registerRead(address: 0x78) & 0xFFFF }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x78, value: newValue & 0xFFFF) }
+  public static var `adc`: UInt16 {
+    get { _registerRead(address: 0x78) & 0xFFFF }
+    set { _registerWrite(address: 0x78, value: newValue & 0xFFFF) }
   }
 }
 
 extension ATmega328P.Adc {
   /// The ADC Control and Status register A (0x7A)
-  @inlinable @inline(__always) public static var `adcsra`: Adcsra {
-    @inlinable @inline(__always) get { _registerRead(address: 0x7A) }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x7A, value: newValue) }
+  public static var `adcsra`: Adcsra {
+    get { _registerRead(address: 0x7A) }
+    set { _registerWrite(address: 0x7A, value: newValue) }
   }
 
   /// The ADC Control and Status register A (0x7A)
@@ -1250,44 +1250,44 @@ extension ATmega328P.Adc {
     public var registerValue: UInt8
 
     /// Initializes a new instance of the Adcsra register.
-    @inlinable @inline(__always) public init(registerValue: UInt8) {
+    public init(registerValue: UInt8) {
       self.registerValue = registerValue
     }
 
     /// ADC Enable
-    @inlinable @inline(__always) public var `aden`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x80) >> 7)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x80) | (Adcsra.RegisterType(newValue.bitfieldValue) << 7) }
+    public var `aden`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x80) >> 7)) }
+      set { registerValue = (registerValue & ~0x80) | (Adcsra.RegisterType(newValue.bitfieldValue) << 7) }
     }
 
     /// ADC Start Conversion
-    @inlinable @inline(__always) public var `adsc`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x40) >> 6)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x40) | (Adcsra.RegisterType(newValue.bitfieldValue) << 6) }
+    public var `adsc`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x40) >> 6)) }
+      set { registerValue = (registerValue & ~0x40) | (Adcsra.RegisterType(newValue.bitfieldValue) << 6) }
     }
 
     /// ADC  Auto Trigger Enable
-    @inlinable @inline(__always) public var `adate`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x20) >> 5)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x20) | (Adcsra.RegisterType(newValue.bitfieldValue) << 5) }
+    public var `adate`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x20) >> 5)) }
+      set { registerValue = (registerValue & ~0x20) | (Adcsra.RegisterType(newValue.bitfieldValue) << 5) }
     }
 
     /// ADC Interrupt Flag
-    @inlinable @inline(__always) public var `adif`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x10) >> 4)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x10) | (Adcsra.RegisterType(newValue.bitfieldValue) << 4) }
+    public var `adif`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x10) >> 4)) }
+      set { registerValue = (registerValue & ~0x10) | (Adcsra.RegisterType(newValue.bitfieldValue) << 4) }
     }
 
     /// ADC Interrupt Enable
-    @inlinable @inline(__always) public var `adie`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x8) >> 3)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x8) | (Adcsra.RegisterType(newValue.bitfieldValue) << 3) }
+    public var `adie`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x8) >> 3)) }
+      set { registerValue = (registerValue & ~0x8) | (Adcsra.RegisterType(newValue.bitfieldValue) << 3) }
     }
 
     /// ADC  Prescaler Select Bits
-    @inlinable @inline(__always) public var `adps`: AnalogAdcPrescaler {
-      @inlinable @inline(__always) get { .init(bitfieldValue: AnalogAdcPrescaler.BitfieldType((registerValue & 0x7) >> 0)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x7) | (Adcsra.RegisterType(newValue.bitfieldValue) << 0) }
+    public var `adps`: AnalogAdcPrescaler {
+      get { .init(bitfieldValue: AnalogAdcPrescaler.BitfieldType((registerValue & 0x7) >> 0)) }
+      set { registerValue = (registerValue & ~0x7) | (Adcsra.RegisterType(newValue.bitfieldValue) << 0) }
     }
 
     /// ANALOG_ADC_PRESCALER
@@ -1318,9 +1318,9 @@ extension ATmega328P.Adc {
 
 extension ATmega328P.Adc {
   /// The ADC Control and Status register B (0x7B)
-  @inlinable @inline(__always) public static var `adcsrb`: Adcsrb {
-    @inlinable @inline(__always) get { _registerRead(address: 0x7B) }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x7B, value: newValue) }
+  public static var `adcsrb`: Adcsrb {
+    get { _registerRead(address: 0x7B) }
+    set { _registerWrite(address: 0x7B, value: newValue) }
   }
 
   /// The ADC Control and Status register B (0x7B)
@@ -1329,20 +1329,20 @@ extension ATmega328P.Adc {
     public var registerValue: UInt8
 
     /// Initializes a new instance of the Adcsrb register.
-    @inlinable @inline(__always) public init(registerValue: UInt8) {
+    public init(registerValue: UInt8) {
       self.registerValue = registerValue
     }
 
     /// ACME
-    @inlinable @inline(__always) public var `acme`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x40) >> 6)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x40) | (Adcsrb.RegisterType(newValue.bitfieldValue) << 6) }
+    public var `acme`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x40) >> 6)) }
+      set { registerValue = (registerValue & ~0x40) | (Adcsrb.RegisterType(newValue.bitfieldValue) << 6) }
     }
 
     /// ADC Auto Trigger Source bits
-    @inlinable @inline(__always) public var `adts`: AnalogAdcAutoTrigger {
-      @inlinable @inline(__always) get { .init(bitfieldValue: AnalogAdcAutoTrigger.BitfieldType((registerValue & 0x7) >> 0)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x7) | (Adcsrb.RegisterType(newValue.bitfieldValue) << 0) }
+    public var `adts`: AnalogAdcAutoTrigger {
+      get { .init(bitfieldValue: AnalogAdcAutoTrigger.BitfieldType((registerValue & 0x7) >> 0)) }
+      set { registerValue = (registerValue & ~0x7) | (Adcsrb.RegisterType(newValue.bitfieldValue) << 0) }
     }
 
     /// ANALOG_ADC_AUTO_TRIGGER
@@ -1376,9 +1376,9 @@ extension ATmega328P.Adc {
 
 extension ATmega328P.Adc {
   /// Digital Input Disable Register (0x7E)
-  @inlinable @inline(__always) public static var `didr0`: Didr0 {
-    @inlinable @inline(__always) get { _registerRead(address: 0x7E) }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x7E, value: newValue) }
+  public static var `didr0`: Didr0 {
+    get { _registerRead(address: 0x7E) }
+    set { _registerWrite(address: 0x7E, value: newValue) }
   }
 
   /// Digital Input Disable Register (0x7E)
@@ -1387,44 +1387,44 @@ extension ATmega328P.Adc {
     public var registerValue: UInt8
 
     /// Initializes a new instance of the Didr0 register.
-    @inlinable @inline(__always) public init(registerValue: UInt8) {
+    public init(registerValue: UInt8) {
       self.registerValue = registerValue
     }
 
     /// ADC5D
-    @inlinable @inline(__always) public var `adc5d`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x20) >> 5)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x20) | (Didr0.RegisterType(newValue.bitfieldValue) << 5) }
+    public var `adc5d`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x20) >> 5)) }
+      set { registerValue = (registerValue & ~0x20) | (Didr0.RegisterType(newValue.bitfieldValue) << 5) }
     }
 
     /// ADC4D
-    @inlinable @inline(__always) public var `adc4d`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x10) >> 4)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x10) | (Didr0.RegisterType(newValue.bitfieldValue) << 4) }
+    public var `adc4d`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x10) >> 4)) }
+      set { registerValue = (registerValue & ~0x10) | (Didr0.RegisterType(newValue.bitfieldValue) << 4) }
     }
 
     /// ADC3D
-    @inlinable @inline(__always) public var `adc3d`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x8) >> 3)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x8) | (Didr0.RegisterType(newValue.bitfieldValue) << 3) }
+    public var `adc3d`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x8) >> 3)) }
+      set { registerValue = (registerValue & ~0x8) | (Didr0.RegisterType(newValue.bitfieldValue) << 3) }
     }
 
     /// ADC2D
-    @inlinable @inline(__always) public var `adc2d`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x4) >> 2)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x4) | (Didr0.RegisterType(newValue.bitfieldValue) << 2) }
+    public var `adc2d`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x4) >> 2)) }
+      set { registerValue = (registerValue & ~0x4) | (Didr0.RegisterType(newValue.bitfieldValue) << 2) }
     }
 
     /// ADC1D
-    @inlinable @inline(__always) public var `adc1d`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x2) >> 1)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x2) | (Didr0.RegisterType(newValue.bitfieldValue) << 1) }
+    public var `adc1d`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x2) >> 1)) }
+      set { registerValue = (registerValue & ~0x2) | (Didr0.RegisterType(newValue.bitfieldValue) << 1) }
     }
 
     /// ADC0D
-    @inlinable @inline(__always) public var `adc0d`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x1) >> 0)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x1) | (Didr0.RegisterType(newValue.bitfieldValue) << 0) }
+    public var `adc0d`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x1) >> 0)) }
+      set { registerValue = (registerValue & ~0x1) | (Didr0.RegisterType(newValue.bitfieldValue) << 0) }
     }
   }
 }
@@ -1479,9 +1479,9 @@ extension ATmega328P {
 
 extension ATmega328P.Ac {
   /// Analog Comparator Control And Status Register (0x50)
-  @inlinable @inline(__always) public static var `acsr`: Acsr {
-    @inlinable @inline(__always) get { _registerRead(address: 0x50) }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x50, value: newValue) }
+  public static var `acsr`: Acsr {
+    get { _registerRead(address: 0x50) }
+    set { _registerWrite(address: 0x50, value: newValue) }
   }
 
   /// Analog Comparator Control And Status Register (0x50)
@@ -1490,50 +1490,50 @@ extension ATmega328P.Ac {
     public var registerValue: UInt8
 
     /// Initializes a new instance of the Acsr register.
-    @inlinable @inline(__always) public init(registerValue: UInt8) {
+    public init(registerValue: UInt8) {
       self.registerValue = registerValue
     }
 
     /// Analog Comparator Disable
-    @inlinable @inline(__always) public var `acd`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x80) >> 7)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x80) | (Acsr.RegisterType(newValue.bitfieldValue) << 7) }
+    public var `acd`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x80) >> 7)) }
+      set { registerValue = (registerValue & ~0x80) | (Acsr.RegisterType(newValue.bitfieldValue) << 7) }
     }
 
     /// Analog Comparator Bandgap Select
-    @inlinable @inline(__always) public var `acbg`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x40) >> 6)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x40) | (Acsr.RegisterType(newValue.bitfieldValue) << 6) }
+    public var `acbg`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x40) >> 6)) }
+      set { registerValue = (registerValue & ~0x40) | (Acsr.RegisterType(newValue.bitfieldValue) << 6) }
     }
 
     /// Analog Compare Output
-    @inlinable @inline(__always) public var `aco`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x20) >> 5)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x20) | (Acsr.RegisterType(newValue.bitfieldValue) << 5) }
+    public var `aco`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x20) >> 5)) }
+      set { registerValue = (registerValue & ~0x20) | (Acsr.RegisterType(newValue.bitfieldValue) << 5) }
     }
 
     /// Analog Comparator Interrupt Flag
-    @inlinable @inline(__always) public var `aci`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x10) >> 4)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x10) | (Acsr.RegisterType(newValue.bitfieldValue) << 4) }
+    public var `aci`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x10) >> 4)) }
+      set { registerValue = (registerValue & ~0x10) | (Acsr.RegisterType(newValue.bitfieldValue) << 4) }
     }
 
     /// Analog Comparator Interrupt Enable
-    @inlinable @inline(__always) public var `acie`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x8) >> 3)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x8) | (Acsr.RegisterType(newValue.bitfieldValue) << 3) }
+    public var `acie`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x8) >> 3)) }
+      set { registerValue = (registerValue & ~0x8) | (Acsr.RegisterType(newValue.bitfieldValue) << 3) }
     }
 
     /// Analog Comparator Input Capture Enable
-    @inlinable @inline(__always) public var `acic`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x4) >> 2)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x4) | (Acsr.RegisterType(newValue.bitfieldValue) << 2) }
+    public var `acic`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x4) >> 2)) }
+      set { registerValue = (registerValue & ~0x4) | (Acsr.RegisterType(newValue.bitfieldValue) << 2) }
     }
 
     /// Analog Comparator Interrupt Mode Select bits
-    @inlinable @inline(__always) public var `acis`: AnalogCompInterrupt {
-      @inlinable @inline(__always) get { .init(bitfieldValue: AnalogCompInterrupt.BitfieldType((registerValue & 0x3) >> 0)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x3) | (Acsr.RegisterType(newValue.bitfieldValue) << 0) }
+    public var `acis`: AnalogCompInterrupt {
+      get { .init(bitfieldValue: AnalogCompInterrupt.BitfieldType((registerValue & 0x3) >> 0)) }
+      set { registerValue = (registerValue & ~0x3) | (Acsr.RegisterType(newValue.bitfieldValue) << 0) }
     }
 
     /// ANALOG_COMP_INTERRUPT
@@ -1552,9 +1552,9 @@ extension ATmega328P.Ac {
 
 extension ATmega328P.Ac {
   /// Digital Input Disable Register 1 (0x7F)
-  @inlinable @inline(__always) public static var `didr1`: Didr1 {
-    @inlinable @inline(__always) get { _registerRead(address: 0x7F) }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x7F, value: newValue) }
+  public static var `didr1`: Didr1 {
+    get { _registerRead(address: 0x7F) }
+    set { _registerWrite(address: 0x7F, value: newValue) }
   }
 
   /// Digital Input Disable Register 1 (0x7F)
@@ -1563,20 +1563,20 @@ extension ATmega328P.Ac {
     public var registerValue: UInt8
 
     /// Initializes a new instance of the Didr1 register.
-    @inlinable @inline(__always) public init(registerValue: UInt8) {
+    public init(registerValue: UInt8) {
       self.registerValue = registerValue
     }
 
     /// AIN1 Digital Input Disable
-    @inlinable @inline(__always) public var `ain1d`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x2) >> 1)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x2) | (Didr1.RegisterType(newValue.bitfieldValue) << 1) }
+    public var `ain1d`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x2) >> 1)) }
+      set { registerValue = (registerValue & ~0x2) | (Didr1.RegisterType(newValue.bitfieldValue) << 1) }
     }
 
     /// AIN0 Digital Input Disable
-    @inlinable @inline(__always) public var `ain0d`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x1) >> 0)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x1) | (Didr1.RegisterType(newValue.bitfieldValue) << 0) }
+    public var `ain0d`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x1) >> 0)) }
+      set { registerValue = (registerValue & ~0x1) | (Didr1.RegisterType(newValue.bitfieldValue) << 0) }
     }
   }
 }
@@ -1611,25 +1611,25 @@ extension ATmega328P {
 
 extension ATmega328P.Portb {
   /// Port B Data Register (0x25)
-  @inlinable @inline(__always) public static var `portb`: UInt8 {
-    @inlinable @inline(__always) get { _registerRead(address: 0x25) & 0xFF }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x25, value: newValue & 0xFF) }
+  public static var `portb`: UInt8 {
+    get { _registerRead(address: 0x25) & 0xFF }
+    set { _registerWrite(address: 0x25, value: newValue & 0xFF) }
   }
 }
 
 extension ATmega328P.Portb {
   /// Port B Data Direction Register (0x24)
-  @inlinable @inline(__always) public static var `ddrb`: UInt8 {
-    @inlinable @inline(__always) get { _registerRead(address: 0x24) & 0xFF }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x24, value: newValue & 0xFF) }
+  public static var `ddrb`: UInt8 {
+    get { _registerRead(address: 0x24) & 0xFF }
+    set { _registerWrite(address: 0x24, value: newValue & 0xFF) }
   }
 }
 
 extension ATmega328P.Portb {
   /// Port B Input Pins (0x23)
-  @inlinable @inline(__always) public static var `pinb`: UInt8 {
-    @inlinable @inline(__always) get { _registerRead(address: 0x23) & 0xFF }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x23, value: newValue & 0xFF) }
+  public static var `pinb`: UInt8 {
+    get { _registerRead(address: 0x23) & 0xFF }
+    set { _registerWrite(address: 0x23, value: newValue & 0xFF) }
   }
 }
 
@@ -1691,25 +1691,25 @@ extension ATmega328P {
 
 extension ATmega328P.Portc {
   /// Port C Data Register (0x28)
-  @inlinable @inline(__always) public static var `portc`: UInt8 {
-    @inlinable @inline(__always) get { _registerRead(address: 0x28) & 0x7F }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x28, value: newValue & 0x7F) }
+  public static var `portc`: UInt8 {
+    get { _registerRead(address: 0x28) & 0x7F }
+    set { _registerWrite(address: 0x28, value: newValue & 0x7F) }
   }
 }
 
 extension ATmega328P.Portc {
   /// Port C Data Direction Register (0x27)
-  @inlinable @inline(__always) public static var `ddrc`: UInt8 {
-    @inlinable @inline(__always) get { _registerRead(address: 0x27) & 0x7F }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x27, value: newValue & 0x7F) }
+  public static var `ddrc`: UInt8 {
+    get { _registerRead(address: 0x27) & 0x7F }
+    set { _registerWrite(address: 0x27, value: newValue & 0x7F) }
   }
 }
 
 extension ATmega328P.Portc {
   /// Port C Input Pins (0x26)
-  @inlinable @inline(__always) public static var `pinc`: UInt8 {
-    @inlinable @inline(__always) get { _registerRead(address: 0x26) & 0x7F }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x26, value: newValue & 0x7F) }
+  public static var `pinc`: UInt8 {
+    get { _registerRead(address: 0x26) & 0x7F }
+    set { _registerWrite(address: 0x26, value: newValue & 0x7F) }
   }
 }
 
@@ -1766,25 +1766,25 @@ extension ATmega328P {
 
 extension ATmega328P.Portd {
   /// Port D Data Register (0x2B)
-  @inlinable @inline(__always) public static var `portd`: UInt8 {
-    @inlinable @inline(__always) get { _registerRead(address: 0x2B) & 0xFF }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x2B, value: newValue & 0xFF) }
+  public static var `portd`: UInt8 {
+    get { _registerRead(address: 0x2B) & 0xFF }
+    set { _registerWrite(address: 0x2B, value: newValue & 0xFF) }
   }
 }
 
 extension ATmega328P.Portd {
   /// Port D Data Direction Register (0x2A)
-  @inlinable @inline(__always) public static var `ddrd`: UInt8 {
-    @inlinable @inline(__always) get { _registerRead(address: 0x2A) & 0xFF }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x2A, value: newValue & 0xFF) }
+  public static var `ddrd`: UInt8 {
+    get { _registerRead(address: 0x2A) & 0xFF }
+    set { _registerWrite(address: 0x2A, value: newValue & 0xFF) }
   }
 }
 
 extension ATmega328P.Portd {
   /// Port D Input Pins (0x29)
-  @inlinable @inline(__always) public static var `pind`: UInt8 {
-    @inlinable @inline(__always) get { _registerRead(address: 0x29) & 0xFF }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x29, value: newValue & 0xFF) }
+  public static var `pind`: UInt8 {
+    get { _registerRead(address: 0x29) & 0xFF }
+    set { _registerWrite(address: 0x29, value: newValue & 0xFF) }
   }
 }
 
@@ -1848,33 +1848,33 @@ extension ATmega328P {
 
 extension ATmega328P.Tc0 {
   /// Timer/Counter0 Output Compare Register (0x48)
-  @inlinable @inline(__always) public static var `ocr0b`: UInt8 {
-    @inlinable @inline(__always) get { _registerRead(address: 0x48) & 0xFF }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x48, value: newValue & 0xFF) }
+  public static var `ocr0b`: UInt8 {
+    get { _registerRead(address: 0x48) & 0xFF }
+    set { _registerWrite(address: 0x48, value: newValue & 0xFF) }
   }
 }
 
 extension ATmega328P.Tc0 {
   /// Timer/Counter0 Output Compare Register (0x47)
-  @inlinable @inline(__always) public static var `ocr0a`: UInt8 {
-    @inlinable @inline(__always) get { _registerRead(address: 0x47) & 0xFF }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x47, value: newValue & 0xFF) }
+  public static var `ocr0a`: UInt8 {
+    get { _registerRead(address: 0x47) & 0xFF }
+    set { _registerWrite(address: 0x47, value: newValue & 0xFF) }
   }
 }
 
 extension ATmega328P.Tc0 {
   /// Timer/Counter0 (0x46)
-  @inlinable @inline(__always) public static var `tcnt0`: UInt8 {
-    @inlinable @inline(__always) get { _registerRead(address: 0x46) & 0xFF }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x46, value: newValue & 0xFF) }
+  public static var `tcnt0`: UInt8 {
+    get { _registerRead(address: 0x46) & 0xFF }
+    set { _registerWrite(address: 0x46, value: newValue & 0xFF) }
   }
 }
 
 extension ATmega328P.Tc0 {
   /// Timer/Counter Control Register B (0x45)
-  @inlinable @inline(__always) public static var `tccr0b`: Tccr0B {
-    @inlinable @inline(__always) get { _registerRead(address: 0x45) }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x45, value: newValue) }
+  public static var `tccr0b`: Tccr0B {
+    get { _registerRead(address: 0x45) }
+    set { _registerWrite(address: 0x45, value: newValue) }
   }
 
   /// Timer/Counter Control Register B (0x45)
@@ -1883,32 +1883,32 @@ extension ATmega328P.Tc0 {
     public var registerValue: UInt8
 
     /// Initializes a new instance of the Tccr0B register.
-    @inlinable @inline(__always) public init(registerValue: UInt8) {
+    public init(registerValue: UInt8) {
       self.registerValue = registerValue
     }
 
     /// Force Output Compare A
-    @inlinable @inline(__always) public var `foc0a`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x80) >> 7)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x80) | (Tccr0B.RegisterType(newValue.bitfieldValue) << 7) }
+    public var `foc0a`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x80) >> 7)) }
+      set { registerValue = (registerValue & ~0x80) | (Tccr0B.RegisterType(newValue.bitfieldValue) << 7) }
     }
 
     /// Force Output Compare B
-    @inlinable @inline(__always) public var `foc0b`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x40) >> 6)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x40) | (Tccr0B.RegisterType(newValue.bitfieldValue) << 6) }
+    public var `foc0b`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x40) >> 6)) }
+      set { registerValue = (registerValue & ~0x40) | (Tccr0B.RegisterType(newValue.bitfieldValue) << 6) }
     }
 
     /// WGM02
-    @inlinable @inline(__always) public var `wgm02`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x8) >> 3)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x8) | (Tccr0B.RegisterType(newValue.bitfieldValue) << 3) }
+    public var `wgm02`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x8) >> 3)) }
+      set { registerValue = (registerValue & ~0x8) | (Tccr0B.RegisterType(newValue.bitfieldValue) << 3) }
     }
 
     /// Clock Select
-    @inlinable @inline(__always) public var `cs0`: ClkSel3BitExt {
-      @inlinable @inline(__always) get { .init(bitfieldValue: ClkSel3BitExt.BitfieldType((registerValue & 0x7) >> 0)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x7) | (Tccr0B.RegisterType(newValue.bitfieldValue) << 0) }
+    public var `cs0`: ClkSel3BitExt {
+      get { .init(bitfieldValue: ClkSel3BitExt.BitfieldType((registerValue & 0x7) >> 0)) }
+      set { registerValue = (registerValue & ~0x7) | (Tccr0B.RegisterType(newValue.bitfieldValue) << 0) }
     }
 
     /// CLK_SEL_3BIT_EXT
@@ -1942,9 +1942,9 @@ extension ATmega328P.Tc0 {
 
 extension ATmega328P.Tc0 {
   /// Timer/Counter  Control Register A (0x44)
-  @inlinable @inline(__always) public static var `tccr0a`: Tccr0A {
-    @inlinable @inline(__always) get { _registerRead(address: 0x44) }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x44, value: newValue) }
+  public static var `tccr0a`: Tccr0A {
+    get { _registerRead(address: 0x44) }
+    set { _registerWrite(address: 0x44, value: newValue) }
   }
 
   /// Timer/Counter  Control Register A (0x44)
@@ -1953,35 +1953,35 @@ extension ATmega328P.Tc0 {
     public var registerValue: UInt8
 
     /// Initializes a new instance of the Tccr0A register.
-    @inlinable @inline(__always) public init(registerValue: UInt8) {
+    public init(registerValue: UInt8) {
       self.registerValue = registerValue
     }
 
     /// Compare Output Mode, Phase Correct PWM Mode
-    @inlinable @inline(__always) public var `com0a`: UInt8 {
-      @inlinable @inline(__always) get { .init(bitfieldValue: UInt8.BitfieldType((registerValue & 0xC0) >> 6)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0xC0) | (Tccr0A.RegisterType(newValue.bitfieldValue) << 6) }
+    public var `com0a`: UInt8 {
+      get { .init(bitfieldValue: UInt8.BitfieldType((registerValue & 0xC0) >> 6)) }
+      set { registerValue = (registerValue & ~0xC0) | (Tccr0A.RegisterType(newValue.bitfieldValue) << 6) }
     }
 
     /// Compare Output Mode, Fast PWm
-    @inlinable @inline(__always) public var `com0b`: UInt8 {
-      @inlinable @inline(__always) get { .init(bitfieldValue: UInt8.BitfieldType((registerValue & 0x30) >> 4)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x30) | (Tccr0A.RegisterType(newValue.bitfieldValue) << 4) }
+    public var `com0b`: UInt8 {
+      get { .init(bitfieldValue: UInt8.BitfieldType((registerValue & 0x30) >> 4)) }
+      set { registerValue = (registerValue & ~0x30) | (Tccr0A.RegisterType(newValue.bitfieldValue) << 4) }
     }
 
     /// Waveform Generation Mode
-    @inlinable @inline(__always) public var `wgm0`: UInt8 {
-      @inlinable @inline(__always) get { .init(bitfieldValue: UInt8.BitfieldType((registerValue & 0x3) >> 0)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x3) | (Tccr0A.RegisterType(newValue.bitfieldValue) << 0) }
+    public var `wgm0`: UInt8 {
+      get { .init(bitfieldValue: UInt8.BitfieldType((registerValue & 0x3) >> 0)) }
+      set { registerValue = (registerValue & ~0x3) | (Tccr0A.RegisterType(newValue.bitfieldValue) << 0) }
     }
   }
 }
 
 extension ATmega328P.Tc0 {
   /// Timer/Counter0 Interrupt Mask Register (0x6E)
-  @inlinable @inline(__always) public static var `timsk0`: Timsk0 {
-    @inlinable @inline(__always) get { _registerRead(address: 0x6E) }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x6E, value: newValue) }
+  public static var `timsk0`: Timsk0 {
+    get { _registerRead(address: 0x6E) }
+    set { _registerWrite(address: 0x6E, value: newValue) }
   }
 
   /// Timer/Counter0 Interrupt Mask Register (0x6E)
@@ -1990,35 +1990,35 @@ extension ATmega328P.Tc0 {
     public var registerValue: UInt8
 
     /// Initializes a new instance of the Timsk0 register.
-    @inlinable @inline(__always) public init(registerValue: UInt8) {
+    public init(registerValue: UInt8) {
       self.registerValue = registerValue
     }
 
     /// Timer/Counter0 Output Compare Match B Interrupt Enable
-    @inlinable @inline(__always) public var `ocie0b`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x4) >> 2)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x4) | (Timsk0.RegisterType(newValue.bitfieldValue) << 2) }
+    public var `ocie0b`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x4) >> 2)) }
+      set { registerValue = (registerValue & ~0x4) | (Timsk0.RegisterType(newValue.bitfieldValue) << 2) }
     }
 
     /// Timer/Counter0 Output Compare Match A Interrupt Enable
-    @inlinable @inline(__always) public var `ocie0a`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x2) >> 1)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x2) | (Timsk0.RegisterType(newValue.bitfieldValue) << 1) }
+    public var `ocie0a`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x2) >> 1)) }
+      set { registerValue = (registerValue & ~0x2) | (Timsk0.RegisterType(newValue.bitfieldValue) << 1) }
     }
 
     /// Timer/Counter0 Overflow Interrupt Enable
-    @inlinable @inline(__always) public var `toie0`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x1) >> 0)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x1) | (Timsk0.RegisterType(newValue.bitfieldValue) << 0) }
+    public var `toie0`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x1) >> 0)) }
+      set { registerValue = (registerValue & ~0x1) | (Timsk0.RegisterType(newValue.bitfieldValue) << 0) }
     }
   }
 }
 
 extension ATmega328P.Tc0 {
   /// Timer/Counter0 Interrupt Flag register (0x35)
-  @inlinable @inline(__always) public static var `tifr0`: Tifr0 {
-    @inlinable @inline(__always) get { _registerRead(address: 0x35) }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x35, value: newValue) }
+  public static var `tifr0`: Tifr0 {
+    get { _registerRead(address: 0x35) }
+    set { _registerWrite(address: 0x35, value: newValue) }
   }
 
   /// Timer/Counter0 Interrupt Flag register (0x35)
@@ -2027,35 +2027,35 @@ extension ATmega328P.Tc0 {
     public var registerValue: UInt8
 
     /// Initializes a new instance of the Tifr0 register.
-    @inlinable @inline(__always) public init(registerValue: UInt8) {
+    public init(registerValue: UInt8) {
       self.registerValue = registerValue
     }
 
     /// Timer/Counter0 Output Compare Flag 0B
-    @inlinable @inline(__always) public var `ocf0b`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x4) >> 2)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x4) | (Tifr0.RegisterType(newValue.bitfieldValue) << 2) }
+    public var `ocf0b`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x4) >> 2)) }
+      set { registerValue = (registerValue & ~0x4) | (Tifr0.RegisterType(newValue.bitfieldValue) << 2) }
     }
 
     /// Timer/Counter0 Output Compare Flag 0A
-    @inlinable @inline(__always) public var `ocf0a`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x2) >> 1)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x2) | (Tifr0.RegisterType(newValue.bitfieldValue) << 1) }
+    public var `ocf0a`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x2) >> 1)) }
+      set { registerValue = (registerValue & ~0x2) | (Tifr0.RegisterType(newValue.bitfieldValue) << 1) }
     }
 
     /// Timer/Counter0 Overflow Flag
-    @inlinable @inline(__always) public var `tov0`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x1) >> 0)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x1) | (Tifr0.RegisterType(newValue.bitfieldValue) << 0) }
+    public var `tov0`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x1) >> 0)) }
+      set { registerValue = (registerValue & ~0x1) | (Tifr0.RegisterType(newValue.bitfieldValue) << 0) }
     }
   }
 }
 
 extension ATmega328P.Tc0 {
   /// General Timer/Counter Control Register (0x43)
-  @inlinable @inline(__always) public static var `gtccr`: Gtccr {
-    @inlinable @inline(__always) get { _registerRead(address: 0x43) }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x43, value: newValue) }
+  public static var `gtccr`: Gtccr {
+    get { _registerRead(address: 0x43) }
+    set { _registerWrite(address: 0x43, value: newValue) }
   }
 
   /// General Timer/Counter Control Register (0x43)
@@ -2064,20 +2064,20 @@ extension ATmega328P.Tc0 {
     public var registerValue: UInt8
 
     /// Initializes a new instance of the Gtccr register.
-    @inlinable @inline(__always) public init(registerValue: UInt8) {
+    public init(registerValue: UInt8) {
       self.registerValue = registerValue
     }
 
     /// Timer/Counter Synchronization Mode
-    @inlinable @inline(__always) public var `tsm`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x80) >> 7)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x80) | (Gtccr.RegisterType(newValue.bitfieldValue) << 7) }
+    public var `tsm`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x80) >> 7)) }
+      set { registerValue = (registerValue & ~0x80) | (Gtccr.RegisterType(newValue.bitfieldValue) << 7) }
     }
 
     /// Prescaler Reset Timer/Counter1 and Timer/Counter0
-    @inlinable @inline(__always) public var `psrsync`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x1) >> 0)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x1) | (Gtccr.RegisterType(newValue.bitfieldValue) << 0) }
+    public var `psrsync`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x1) >> 0)) }
+      set { registerValue = (registerValue & ~0x1) | (Gtccr.RegisterType(newValue.bitfieldValue) << 0) }
     }
   }
 }
@@ -2117,9 +2117,9 @@ extension ATmega328P {
 
 extension ATmega328P.Exint {
   /// External Interrupt Control Register (0x69)
-  @inlinable @inline(__always) public static var `eicra`: Eicra {
-    @inlinable @inline(__always) get { _registerRead(address: 0x69) }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x69, value: newValue) }
+  public static var `eicra`: Eicra {
+    get { _registerRead(address: 0x69) }
+    set { _registerWrite(address: 0x69, value: newValue) }
   }
 
   /// External Interrupt Control Register (0x69)
@@ -2128,20 +2128,20 @@ extension ATmega328P.Exint {
     public var registerValue: UInt8
 
     /// Initializes a new instance of the Eicra register.
-    @inlinable @inline(__always) public init(registerValue: UInt8) {
+    public init(registerValue: UInt8) {
       self.registerValue = registerValue
     }
 
     /// External Interrupt Sense Control 1 Bits
-    @inlinable @inline(__always) public var `isc1`: InterruptSenseControl {
-      @inlinable @inline(__always) get { .init(bitfieldValue: InterruptSenseControl.BitfieldType((registerValue & 0xC) >> 2)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0xC) | (Eicra.RegisterType(newValue.bitfieldValue) << 2) }
+    public var `isc1`: InterruptSenseControl {
+      get { .init(bitfieldValue: InterruptSenseControl.BitfieldType((registerValue & 0xC) >> 2)) }
+      set { registerValue = (registerValue & ~0xC) | (Eicra.RegisterType(newValue.bitfieldValue) << 2) }
     }
 
     /// External Interrupt Sense Control 0 Bits
-    @inlinable @inline(__always) public var `isc0`: InterruptSenseControl {
-      @inlinable @inline(__always) get { .init(bitfieldValue: InterruptSenseControl.BitfieldType((registerValue & 0x3) >> 0)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x3) | (Eicra.RegisterType(newValue.bitfieldValue) << 0) }
+    public var `isc0`: InterruptSenseControl {
+      get { .init(bitfieldValue: InterruptSenseControl.BitfieldType((registerValue & 0x3) >> 0)) }
+      set { registerValue = (registerValue & ~0x3) | (Eicra.RegisterType(newValue.bitfieldValue) << 0) }
     }
 
     /// INTERRUPT_SENSE_CONTROL: Interrupt Sense Control
@@ -2163,9 +2163,9 @@ extension ATmega328P.Exint {
 
 extension ATmega328P.Exint {
   /// External Interrupt Mask Register (0x3D)
-  @inlinable @inline(__always) public static var `eimsk`: Eimsk {
-    @inlinable @inline(__always) get { _registerRead(address: 0x3D) }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x3D, value: newValue) }
+  public static var `eimsk`: Eimsk {
+    get { _registerRead(address: 0x3D) }
+    set { _registerWrite(address: 0x3D, value: newValue) }
   }
 
   /// External Interrupt Mask Register (0x3D)
@@ -2174,23 +2174,23 @@ extension ATmega328P.Exint {
     public var registerValue: UInt8
 
     /// Initializes a new instance of the Eimsk register.
-    @inlinable @inline(__always) public init(registerValue: UInt8) {
+    public init(registerValue: UInt8) {
       self.registerValue = registerValue
     }
 
     /// External Interrupt Request 1 Enable
-    @inlinable @inline(__always) public var `int`: UInt8 {
-      @inlinable @inline(__always) get { .init(bitfieldValue: UInt8.BitfieldType((registerValue & 0x3) >> 0)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x3) | (Eimsk.RegisterType(newValue.bitfieldValue) << 0) }
+    public var `int`: UInt8 {
+      get { .init(bitfieldValue: UInt8.BitfieldType((registerValue & 0x3) >> 0)) }
+      set { registerValue = (registerValue & ~0x3) | (Eimsk.RegisterType(newValue.bitfieldValue) << 0) }
     }
   }
 }
 
 extension ATmega328P.Exint {
   /// External Interrupt Flag Register (0x3C)
-  @inlinable @inline(__always) public static var `eifr`: Eifr {
-    @inlinable @inline(__always) get { _registerRead(address: 0x3C) }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x3C, value: newValue) }
+  public static var `eifr`: Eifr {
+    get { _registerRead(address: 0x3C) }
+    set { _registerWrite(address: 0x3C, value: newValue) }
   }
 
   /// External Interrupt Flag Register (0x3C)
@@ -2199,23 +2199,23 @@ extension ATmega328P.Exint {
     public var registerValue: UInt8
 
     /// Initializes a new instance of the Eifr register.
-    @inlinable @inline(__always) public init(registerValue: UInt8) {
+    public init(registerValue: UInt8) {
       self.registerValue = registerValue
     }
 
     /// External Interrupt Flags
-    @inlinable @inline(__always) public var `intf`: UInt8 {
-      @inlinable @inline(__always) get { .init(bitfieldValue: UInt8.BitfieldType((registerValue & 0x3) >> 0)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x3) | (Eifr.RegisterType(newValue.bitfieldValue) << 0) }
+    public var `intf`: UInt8 {
+      get { .init(bitfieldValue: UInt8.BitfieldType((registerValue & 0x3) >> 0)) }
+      set { registerValue = (registerValue & ~0x3) | (Eifr.RegisterType(newValue.bitfieldValue) << 0) }
     }
   }
 }
 
 extension ATmega328P.Exint {
   /// Pin Change Interrupt Control Register (0x68)
-  @inlinable @inline(__always) public static var `pcicr`: Pcicr {
-    @inlinable @inline(__always) get { _registerRead(address: 0x68) }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x68, value: newValue) }
+  public static var `pcicr`: Pcicr {
+    get { _registerRead(address: 0x68) }
+    set { _registerWrite(address: 0x68, value: newValue) }
   }
 
   /// Pin Change Interrupt Control Register (0x68)
@@ -2224,23 +2224,23 @@ extension ATmega328P.Exint {
     public var registerValue: UInt8
 
     /// Initializes a new instance of the Pcicr register.
-    @inlinable @inline(__always) public init(registerValue: UInt8) {
+    public init(registerValue: UInt8) {
       self.registerValue = registerValue
     }
 
     /// Pin Change Interrupt Enables
-    @inlinable @inline(__always) public var `pcie`: UInt8 {
-      @inlinable @inline(__always) get { .init(bitfieldValue: UInt8.BitfieldType((registerValue & 0x7) >> 0)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x7) | (Pcicr.RegisterType(newValue.bitfieldValue) << 0) }
+    public var `pcie`: UInt8 {
+      get { .init(bitfieldValue: UInt8.BitfieldType((registerValue & 0x7) >> 0)) }
+      set { registerValue = (registerValue & ~0x7) | (Pcicr.RegisterType(newValue.bitfieldValue) << 0) }
     }
   }
 }
 
 extension ATmega328P.Exint {
   /// Pin Change Mask Register 2 (0x6D)
-  @inlinable @inline(__always) public static var `pcmsk2`: Pcmsk2 {
-    @inlinable @inline(__always) get { _registerRead(address: 0x6D) }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x6D, value: newValue) }
+  public static var `pcmsk2`: Pcmsk2 {
+    get { _registerRead(address: 0x6D) }
+    set { _registerWrite(address: 0x6D, value: newValue) }
   }
 
   /// Pin Change Mask Register 2 (0x6D)
@@ -2249,23 +2249,23 @@ extension ATmega328P.Exint {
     public var registerValue: UInt8
 
     /// Initializes a new instance of the Pcmsk2 register.
-    @inlinable @inline(__always) public init(registerValue: UInt8) {
+    public init(registerValue: UInt8) {
       self.registerValue = registerValue
     }
 
     /// Pin Change Enable Masks
-    @inlinable @inline(__always) public var `pcint16`: UInt8 {
-      @inlinable @inline(__always) get { .init(bitfieldValue: UInt8.BitfieldType((registerValue & 0xFF) >> 0)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0xFF) | (Pcmsk2.RegisterType(newValue.bitfieldValue) << 0) }
+    public var `pcint16`: UInt8 {
+      get { .init(bitfieldValue: UInt8.BitfieldType((registerValue & 0xFF) >> 0)) }
+      set { registerValue = (registerValue & ~0xFF) | (Pcmsk2.RegisterType(newValue.bitfieldValue) << 0) }
     }
   }
 }
 
 extension ATmega328P.Exint {
   /// Pin Change Mask Register 1 (0x6C)
-  @inlinable @inline(__always) public static var `pcmsk1`: Pcmsk1 {
-    @inlinable @inline(__always) get { _registerRead(address: 0x6C) }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x6C, value: newValue) }
+  public static var `pcmsk1`: Pcmsk1 {
+    get { _registerRead(address: 0x6C) }
+    set { _registerWrite(address: 0x6C, value: newValue) }
   }
 
   /// Pin Change Mask Register 1 (0x6C)
@@ -2274,23 +2274,23 @@ extension ATmega328P.Exint {
     public var registerValue: UInt8
 
     /// Initializes a new instance of the Pcmsk1 register.
-    @inlinable @inline(__always) public init(registerValue: UInt8) {
+    public init(registerValue: UInt8) {
       self.registerValue = registerValue
     }
 
     /// Pin Change Enable Masks
-    @inlinable @inline(__always) public var `pcint8`: UInt8 {
-      @inlinable @inline(__always) get { .init(bitfieldValue: UInt8.BitfieldType((registerValue & 0x7F) >> 0)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x7F) | (Pcmsk1.RegisterType(newValue.bitfieldValue) << 0) }
+    public var `pcint8`: UInt8 {
+      get { .init(bitfieldValue: UInt8.BitfieldType((registerValue & 0x7F) >> 0)) }
+      set { registerValue = (registerValue & ~0x7F) | (Pcmsk1.RegisterType(newValue.bitfieldValue) << 0) }
     }
   }
 }
 
 extension ATmega328P.Exint {
   /// Pin Change Mask Register 0 (0x6B)
-  @inlinable @inline(__always) public static var `pcmsk0`: Pcmsk0 {
-    @inlinable @inline(__always) get { _registerRead(address: 0x6B) }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x6B, value: newValue) }
+  public static var `pcmsk0`: Pcmsk0 {
+    get { _registerRead(address: 0x6B) }
+    set { _registerWrite(address: 0x6B, value: newValue) }
   }
 
   /// Pin Change Mask Register 0 (0x6B)
@@ -2299,23 +2299,23 @@ extension ATmega328P.Exint {
     public var registerValue: UInt8
 
     /// Initializes a new instance of the Pcmsk0 register.
-    @inlinable @inline(__always) public init(registerValue: UInt8) {
+    public init(registerValue: UInt8) {
       self.registerValue = registerValue
     }
 
     /// Pin Change Enable Masks
-    @inlinable @inline(__always) public var `pcint`: UInt8 {
-      @inlinable @inline(__always) get { .init(bitfieldValue: UInt8.BitfieldType((registerValue & 0xFF) >> 0)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0xFF) | (Pcmsk0.RegisterType(newValue.bitfieldValue) << 0) }
+    public var `pcint`: UInt8 {
+      get { .init(bitfieldValue: UInt8.BitfieldType((registerValue & 0xFF) >> 0)) }
+      set { registerValue = (registerValue & ~0xFF) | (Pcmsk0.RegisterType(newValue.bitfieldValue) << 0) }
     }
   }
 }
 
 extension ATmega328P.Exint {
   /// Pin Change Interrupt Flag Register (0x3B)
-  @inlinable @inline(__always) public static var `pcifr`: Pcifr {
-    @inlinable @inline(__always) get { _registerRead(address: 0x3B) }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x3B, value: newValue) }
+  public static var `pcifr`: Pcifr {
+    get { _registerRead(address: 0x3B) }
+    set { _registerWrite(address: 0x3B, value: newValue) }
   }
 
   /// Pin Change Interrupt Flag Register (0x3B)
@@ -2324,14 +2324,14 @@ extension ATmega328P.Exint {
     public var registerValue: UInt8
 
     /// Initializes a new instance of the Pcifr register.
-    @inlinable @inline(__always) public init(registerValue: UInt8) {
+    public init(registerValue: UInt8) {
       self.registerValue = registerValue
     }
 
     /// Pin Change Interrupt Flags
-    @inlinable @inline(__always) public var `pcif`: UInt8 {
-      @inlinable @inline(__always) get { .init(bitfieldValue: UInt8.BitfieldType((registerValue & 0x7) >> 0)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x7) | (Pcifr.RegisterType(newValue.bitfieldValue) << 0) }
+    public var `pcif`: UInt8 {
+      get { .init(bitfieldValue: UInt8.BitfieldType((registerValue & 0x7) >> 0)) }
+      set { registerValue = (registerValue & ~0x7) | (Pcifr.RegisterType(newValue.bitfieldValue) << 0) }
     }
   }
 }
@@ -2481,17 +2481,17 @@ extension ATmega328P {
 
 extension ATmega328P.Spi {
   /// SPI Data Register (0x4E)
-  @inlinable @inline(__always) public static var `spdr`: UInt8 {
-    @inlinable @inline(__always) get { _registerRead(address: 0x4E) & 0xFF }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x4E, value: newValue & 0xFF) }
+  public static var `spdr`: UInt8 {
+    get { _registerRead(address: 0x4E) & 0xFF }
+    set { _registerWrite(address: 0x4E, value: newValue & 0xFF) }
   }
 }
 
 extension ATmega328P.Spi {
   /// SPI Status Register (0x4D)
-  @inlinable @inline(__always) public static var `spsr`: Spsr {
-    @inlinable @inline(__always) get { _registerRead(address: 0x4D) }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x4D, value: newValue) }
+  public static var `spsr`: Spsr {
+    get { _registerRead(address: 0x4D) }
+    set { _registerWrite(address: 0x4D, value: newValue) }
   }
 
   /// SPI Status Register (0x4D)
@@ -2500,35 +2500,35 @@ extension ATmega328P.Spi {
     public var registerValue: UInt8
 
     /// Initializes a new instance of the Spsr register.
-    @inlinable @inline(__always) public init(registerValue: UInt8) {
+    public init(registerValue: UInt8) {
       self.registerValue = registerValue
     }
 
     /// SPI Interrupt Flag
-    @inlinable @inline(__always) public var `spif`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x80) >> 7)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x80) | (Spsr.RegisterType(newValue.bitfieldValue) << 7) }
+    public var `spif`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x80) >> 7)) }
+      set { registerValue = (registerValue & ~0x80) | (Spsr.RegisterType(newValue.bitfieldValue) << 7) }
     }
 
     /// Write Collision Flag
-    @inlinable @inline(__always) public var `wcol`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x40) >> 6)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x40) | (Spsr.RegisterType(newValue.bitfieldValue) << 6) }
+    public var `wcol`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x40) >> 6)) }
+      set { registerValue = (registerValue & ~0x40) | (Spsr.RegisterType(newValue.bitfieldValue) << 6) }
     }
 
     /// Double SPI Speed Bit
-    @inlinable @inline(__always) public var `spi2x`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x1) >> 0)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x1) | (Spsr.RegisterType(newValue.bitfieldValue) << 0) }
+    public var `spi2x`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x1) >> 0)) }
+      set { registerValue = (registerValue & ~0x1) | (Spsr.RegisterType(newValue.bitfieldValue) << 0) }
     }
   }
 }
 
 extension ATmega328P.Spi {
   /// SPI Control Register (0x4C)
-  @inlinable @inline(__always) public static var `spcr`: Spcr {
-    @inlinable @inline(__always) get { _registerRead(address: 0x4C) }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x4C, value: newValue) }
+  public static var `spcr`: Spcr {
+    get { _registerRead(address: 0x4C) }
+    set { _registerWrite(address: 0x4C, value: newValue) }
   }
 
   /// SPI Control Register (0x4C)
@@ -2537,50 +2537,50 @@ extension ATmega328P.Spi {
     public var registerValue: UInt8
 
     /// Initializes a new instance of the Spcr register.
-    @inlinable @inline(__always) public init(registerValue: UInt8) {
+    public init(registerValue: UInt8) {
       self.registerValue = registerValue
     }
 
     /// SPI Interrupt Enable
-    @inlinable @inline(__always) public var `spie`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x80) >> 7)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x80) | (Spcr.RegisterType(newValue.bitfieldValue) << 7) }
+    public var `spie`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x80) >> 7)) }
+      set { registerValue = (registerValue & ~0x80) | (Spcr.RegisterType(newValue.bitfieldValue) << 7) }
     }
 
     /// SPI Enable
-    @inlinable @inline(__always) public var `spe`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x40) >> 6)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x40) | (Spcr.RegisterType(newValue.bitfieldValue) << 6) }
+    public var `spe`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x40) >> 6)) }
+      set { registerValue = (registerValue & ~0x40) | (Spcr.RegisterType(newValue.bitfieldValue) << 6) }
     }
 
     /// Data Order
-    @inlinable @inline(__always) public var `dord`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x20) >> 5)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x20) | (Spcr.RegisterType(newValue.bitfieldValue) << 5) }
+    public var `dord`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x20) >> 5)) }
+      set { registerValue = (registerValue & ~0x20) | (Spcr.RegisterType(newValue.bitfieldValue) << 5) }
     }
 
     /// Master/Slave Select
-    @inlinable @inline(__always) public var `mstr`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x10) >> 4)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x10) | (Spcr.RegisterType(newValue.bitfieldValue) << 4) }
+    public var `mstr`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x10) >> 4)) }
+      set { registerValue = (registerValue & ~0x10) | (Spcr.RegisterType(newValue.bitfieldValue) << 4) }
     }
 
     /// Clock polarity
-    @inlinable @inline(__always) public var `cpol`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x8) >> 3)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x8) | (Spcr.RegisterType(newValue.bitfieldValue) << 3) }
+    public var `cpol`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x8) >> 3)) }
+      set { registerValue = (registerValue & ~0x8) | (Spcr.RegisterType(newValue.bitfieldValue) << 3) }
     }
 
     /// Clock Phase
-    @inlinable @inline(__always) public var `cpha`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x4) >> 2)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x4) | (Spcr.RegisterType(newValue.bitfieldValue) << 2) }
+    public var `cpha`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x4) >> 2)) }
+      set { registerValue = (registerValue & ~0x4) | (Spcr.RegisterType(newValue.bitfieldValue) << 2) }
     }
 
     /// SPI Clock Rate Selects
-    @inlinable @inline(__always) public var `spr`: CommSckRate3Bit {
-      @inlinable @inline(__always) get { .init(bitfieldValue: CommSckRate3Bit.BitfieldType((registerValue & 0x3) >> 0)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x3) | (Spcr.RegisterType(newValue.bitfieldValue) << 0) }
+    public var `spr`: CommSckRate3Bit {
+      get { .init(bitfieldValue: CommSckRate3Bit.BitfieldType((registerValue & 0x3) >> 0)) }
+      set { registerValue = (registerValue & ~0x3) | (Spcr.RegisterType(newValue.bitfieldValue) << 0) }
     }
 
     /// COMM_SCK_RATE_3BIT
@@ -2640,9 +2640,9 @@ extension ATmega328P {
 
 extension ATmega328P.Wdt {
   /// Watchdog Timer Control Register (0x60)
-  @inlinable @inline(__always) public static var `wdtcsr`: Wdtcsr {
-    @inlinable @inline(__always) get { _registerRead(address: 0x60) }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x60, value: newValue) }
+  public static var `wdtcsr`: Wdtcsr {
+    get { _registerRead(address: 0x60) }
+    set { _registerWrite(address: 0x60, value: newValue) }
   }
 
   /// Watchdog Timer Control Register (0x60)
@@ -2651,38 +2651,38 @@ extension ATmega328P.Wdt {
     public var registerValue: UInt8
 
     /// Initializes a new instance of the Wdtcsr register.
-    @inlinable @inline(__always) public init(registerValue: UInt8) {
+    public init(registerValue: UInt8) {
       self.registerValue = registerValue
     }
 
     /// Watchdog Timeout Interrupt Flag
-    @inlinable @inline(__always) public var `wdif`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x80) >> 7)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x80) | (Wdtcsr.RegisterType(newValue.bitfieldValue) << 7) }
+    public var `wdif`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x80) >> 7)) }
+      set { registerValue = (registerValue & ~0x80) | (Wdtcsr.RegisterType(newValue.bitfieldValue) << 7) }
     }
 
     /// Watchdog Timeout Interrupt Enable
-    @inlinable @inline(__always) public var `wdie`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x40) >> 6)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x40) | (Wdtcsr.RegisterType(newValue.bitfieldValue) << 6) }
+    public var `wdie`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x40) >> 6)) }
+      set { registerValue = (registerValue & ~0x40) | (Wdtcsr.RegisterType(newValue.bitfieldValue) << 6) }
     }
 
     /// Watchdog Timer Prescaler Bits
-    @inlinable @inline(__always) public var `wdp`: WdogTimerPrescale4Bits {
-      @inlinable @inline(__always) get { .init(bitfieldValue: WdogTimerPrescale4Bits.BitfieldType((registerValue & 0x27) >> 0)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x27) | (Wdtcsr.RegisterType(newValue.bitfieldValue) << 0) }
+    public var `wdp`: WdogTimerPrescale4Bits {
+      get { .init(bitfieldValue: WdogTimerPrescale4Bits.BitfieldType((registerValue & 0x27) >> 0)) }
+      set { registerValue = (registerValue & ~0x27) | (Wdtcsr.RegisterType(newValue.bitfieldValue) << 0) }
     }
 
     /// Watchdog Change Enable
-    @inlinable @inline(__always) public var `wdce`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x10) >> 4)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x10) | (Wdtcsr.RegisterType(newValue.bitfieldValue) << 4) }
+    public var `wdce`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x10) >> 4)) }
+      set { registerValue = (registerValue & ~0x10) | (Wdtcsr.RegisterType(newValue.bitfieldValue) << 4) }
     }
 
     /// Watch Dog Enable
-    @inlinable @inline(__always) public var `wde`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x8) >> 3)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x8) | (Wdtcsr.RegisterType(newValue.bitfieldValue) << 3) }
+    public var `wde`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x8) >> 3)) }
+      set { registerValue = (registerValue & ~0x8) | (Wdtcsr.RegisterType(newValue.bitfieldValue) << 3) }
     }
 
     /// WDOG_TIMER_PRESCALE_4BITS
@@ -2732,25 +2732,25 @@ extension ATmega328P {
 
 extension ATmega328P.Eeprom {
   /// EEPROM Address Register  Bytes (0x41)
-  @inlinable @inline(__always) public static var `eear`: UInt16 {
-    @inlinable @inline(__always) get { _registerRead(address: 0x41) & 0x03FF }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x41, value: newValue & 0x03FF) }
+  public static var `eear`: UInt16 {
+    get { _registerRead(address: 0x41) & 0x03FF }
+    set { _registerWrite(address: 0x41, value: newValue & 0x03FF) }
   }
 }
 
 extension ATmega328P.Eeprom {
   /// EEPROM Data Register (0x40)
-  @inlinable @inline(__always) public static var `eedr`: UInt8 {
-    @inlinable @inline(__always) get { _registerRead(address: 0x40) & 0xFF }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x40, value: newValue & 0xFF) }
+  public static var `eedr`: UInt8 {
+    get { _registerRead(address: 0x40) & 0xFF }
+    set { _registerWrite(address: 0x40, value: newValue & 0xFF) }
   }
 }
 
 extension ATmega328P.Eeprom {
   /// EEPROM Control Register (0x3F)
-  @inlinable @inline(__always) public static var `eecr`: Eecr {
-    @inlinable @inline(__always) get { _registerRead(address: 0x3F) }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x3F, value: newValue) }
+  public static var `eecr`: Eecr {
+    get { _registerRead(address: 0x3F) }
+    set { _registerWrite(address: 0x3F, value: newValue) }
   }
 
   /// EEPROM Control Register (0x3F)
@@ -2759,38 +2759,38 @@ extension ATmega328P.Eeprom {
     public var registerValue: UInt8
 
     /// Initializes a new instance of the Eecr register.
-    @inlinable @inline(__always) public init(registerValue: UInt8) {
+    public init(registerValue: UInt8) {
       self.registerValue = registerValue
     }
 
     /// EEPROM Programming Mode Bits
-    @inlinable @inline(__always) public var `eepm`: EepMode {
-      @inlinable @inline(__always) get { .init(bitfieldValue: EepMode.BitfieldType((registerValue & 0x30) >> 4)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x30) | (Eecr.RegisterType(newValue.bitfieldValue) << 4) }
+    public var `eepm`: EepMode {
+      get { .init(bitfieldValue: EepMode.BitfieldType((registerValue & 0x30) >> 4)) }
+      set { registerValue = (registerValue & ~0x30) | (Eecr.RegisterType(newValue.bitfieldValue) << 4) }
     }
 
     /// EEPROM Ready Interrupt Enable
-    @inlinable @inline(__always) public var `eerie`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x8) >> 3)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x8) | (Eecr.RegisterType(newValue.bitfieldValue) << 3) }
+    public var `eerie`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x8) >> 3)) }
+      set { registerValue = (registerValue & ~0x8) | (Eecr.RegisterType(newValue.bitfieldValue) << 3) }
     }
 
     /// EEPROM Master Write Enable
-    @inlinable @inline(__always) public var `eempe`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x4) >> 2)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x4) | (Eecr.RegisterType(newValue.bitfieldValue) << 2) }
+    public var `eempe`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x4) >> 2)) }
+      set { registerValue = (registerValue & ~0x4) | (Eecr.RegisterType(newValue.bitfieldValue) << 2) }
     }
 
     /// EEPROM Write Enable
-    @inlinable @inline(__always) public var `eepe`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x2) >> 1)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x2) | (Eecr.RegisterType(newValue.bitfieldValue) << 1) }
+    public var `eepe`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x2) >> 1)) }
+      set { registerValue = (registerValue & ~0x2) | (Eecr.RegisterType(newValue.bitfieldValue) << 1) }
     }
 
     /// EEPROM Read Enable
-    @inlinable @inline(__always) public var `eere`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x1) >> 0)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x1) | (Eecr.RegisterType(newValue.bitfieldValue) << 0) }
+    public var `eere`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x1) >> 0)) }
+      set { registerValue = (registerValue & ~0x1) | (Eecr.RegisterType(newValue.bitfieldValue) << 0) }
     }
 
     /// EEP_MODE
@@ -2819,9 +2819,9 @@ extension ATmega328P {
 
 extension ATmega328P.Cpu {
   /// Power Reduction Register (0x64)
-  @inlinable @inline(__always) public static var `prr`: Prr {
-    @inlinable @inline(__always) get { _registerRead(address: 0x64) }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x64, value: newValue) }
+  public static var `prr`: Prr {
+    get { _registerRead(address: 0x64) }
+    set { _registerWrite(address: 0x64, value: newValue) }
   }
 
   /// Power Reduction Register (0x64)
@@ -2830,59 +2830,59 @@ extension ATmega328P.Cpu {
     public var registerValue: UInt8
 
     /// Initializes a new instance of the Prr register.
-    @inlinable @inline(__always) public init(registerValue: UInt8) {
+    public init(registerValue: UInt8) {
       self.registerValue = registerValue
     }
 
     /// Power Reduction TWI
-    @inlinable @inline(__always) public var `prtwi`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x80) >> 7)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x80) | (Prr.RegisterType(newValue.bitfieldValue) << 7) }
+    public var `prtwi`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x80) >> 7)) }
+      set { registerValue = (registerValue & ~0x80) | (Prr.RegisterType(newValue.bitfieldValue) << 7) }
     }
 
     /// Power Reduction Timer/Counter2
-    @inlinable @inline(__always) public var `prtim2`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x40) >> 6)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x40) | (Prr.RegisterType(newValue.bitfieldValue) << 6) }
+    public var `prtim2`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x40) >> 6)) }
+      set { registerValue = (registerValue & ~0x40) | (Prr.RegisterType(newValue.bitfieldValue) << 6) }
     }
 
     /// Power Reduction Timer/Counter0
-    @inlinable @inline(__always) public var `prtim0`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x20) >> 5)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x20) | (Prr.RegisterType(newValue.bitfieldValue) << 5) }
+    public var `prtim0`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x20) >> 5)) }
+      set { registerValue = (registerValue & ~0x20) | (Prr.RegisterType(newValue.bitfieldValue) << 5) }
     }
 
     /// Power Reduction Timer/Counter1
-    @inlinable @inline(__always) public var `prtim1`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x8) >> 3)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x8) | (Prr.RegisterType(newValue.bitfieldValue) << 3) }
+    public var `prtim1`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x8) >> 3)) }
+      set { registerValue = (registerValue & ~0x8) | (Prr.RegisterType(newValue.bitfieldValue) << 3) }
     }
 
     /// Power Reduction Serial Peripheral Interface
-    @inlinable @inline(__always) public var `prspi`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x4) >> 2)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x4) | (Prr.RegisterType(newValue.bitfieldValue) << 2) }
+    public var `prspi`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x4) >> 2)) }
+      set { registerValue = (registerValue & ~0x4) | (Prr.RegisterType(newValue.bitfieldValue) << 2) }
     }
 
     /// Power Reduction USART
-    @inlinable @inline(__always) public var `prusart0`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x2) >> 1)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x2) | (Prr.RegisterType(newValue.bitfieldValue) << 1) }
+    public var `prusart0`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x2) >> 1)) }
+      set { registerValue = (registerValue & ~0x2) | (Prr.RegisterType(newValue.bitfieldValue) << 1) }
     }
 
     /// Power Reduction ADC
-    @inlinable @inline(__always) public var `pradc`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x1) >> 0)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x1) | (Prr.RegisterType(newValue.bitfieldValue) << 0) }
+    public var `pradc`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x1) >> 0)) }
+      set { registerValue = (registerValue & ~0x1) | (Prr.RegisterType(newValue.bitfieldValue) << 0) }
     }
   }
 }
 
 extension ATmega328P.Cpu {
   /// Oscillator Calibration Value (0x66)
-  @inlinable @inline(__always) public static var `osccal`: Osccal {
-    @inlinable @inline(__always) get { _registerRead(address: 0x66) }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x66, value: newValue) }
+  public static var `osccal`: Osccal {
+    get { _registerRead(address: 0x66) }
+    set { _registerWrite(address: 0x66, value: newValue) }
   }
 
   /// Oscillator Calibration Value (0x66)
@@ -2891,23 +2891,23 @@ extension ATmega328P.Cpu {
     public var registerValue: UInt8
 
     /// Initializes a new instance of the Osccal register.
-    @inlinable @inline(__always) public init(registerValue: UInt8) {
+    public init(registerValue: UInt8) {
       self.registerValue = registerValue
     }
 
     /// Oscillator Calibration 
-    @inlinable @inline(__always) public var `osccal`: UInt8 {
-      @inlinable @inline(__always) get { .init(bitfieldValue: UInt8.BitfieldType((registerValue & 0xFF) >> 0)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0xFF) | (Osccal.RegisterType(newValue.bitfieldValue) << 0) }
+    public var `osccal`: UInt8 {
+      get { .init(bitfieldValue: UInt8.BitfieldType((registerValue & 0xFF) >> 0)) }
+      set { registerValue = (registerValue & ~0xFF) | (Osccal.RegisterType(newValue.bitfieldValue) << 0) }
     }
   }
 }
 
 extension ATmega328P.Cpu {
   /// Clock Prescale Register (0x61)
-  @inlinable @inline(__always) public static var `clkpr`: Clkpr {
-    @inlinable @inline(__always) get { _registerRead(address: 0x61) }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x61, value: newValue) }
+  public static var `clkpr`: Clkpr {
+    get { _registerRead(address: 0x61) }
+    set { _registerWrite(address: 0x61, value: newValue) }
   }
 
   /// Clock Prescale Register (0x61)
@@ -2916,20 +2916,20 @@ extension ATmega328P.Cpu {
     public var registerValue: UInt8
 
     /// Initializes a new instance of the Clkpr register.
-    @inlinable @inline(__always) public init(registerValue: UInt8) {
+    public init(registerValue: UInt8) {
       self.registerValue = registerValue
     }
 
     /// Clock Prescaler Change Enable
-    @inlinable @inline(__always) public var `clkpce`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x80) >> 7)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x80) | (Clkpr.RegisterType(newValue.bitfieldValue) << 7) }
+    public var `clkpce`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x80) >> 7)) }
+      set { registerValue = (registerValue & ~0x80) | (Clkpr.RegisterType(newValue.bitfieldValue) << 7) }
     }
 
     /// Clock Prescaler Select Bits
-    @inlinable @inline(__always) public var `clkps`: CpuClkPrescale4BitsSmall {
-      @inlinable @inline(__always) get { .init(bitfieldValue: CpuClkPrescale4BitsSmall.BitfieldType((registerValue & 0xF) >> 0)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0xF) | (Clkpr.RegisterType(newValue.bitfieldValue) << 0) }
+    public var `clkps`: CpuClkPrescale4BitsSmall {
+      get { .init(bitfieldValue: CpuClkPrescale4BitsSmall.BitfieldType((registerValue & 0xF) >> 0)) }
+      set { registerValue = (registerValue & ~0xF) | (Clkpr.RegisterType(newValue.bitfieldValue) << 0) }
     }
 
     /// CPU_CLK_PRESCALE_4_BITS_SMALL
@@ -2966,9 +2966,9 @@ extension ATmega328P.Cpu {
 
 extension ATmega328P.Cpu {
   /// Status Register (0x5F)
-  @inlinable @inline(__always) public static var `sreg`: Sreg {
-    @inlinable @inline(__always) get { _registerRead(address: 0x5F) }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x5F, value: newValue) }
+  public static var `sreg`: Sreg {
+    get { _registerRead(address: 0x5F) }
+    set { _registerWrite(address: 0x5F, value: newValue) }
   }
 
   /// Status Register (0x5F)
@@ -2977,73 +2977,73 @@ extension ATmega328P.Cpu {
     public var registerValue: UInt8
 
     /// Initializes a new instance of the Sreg register.
-    @inlinable @inline(__always) public init(registerValue: UInt8) {
+    public init(registerValue: UInt8) {
       self.registerValue = registerValue
     }
 
     /// Global Interrupt Enable
-    @inlinable @inline(__always) public var `i`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x80) >> 7)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x80) | (Sreg.RegisterType(newValue.bitfieldValue) << 7) }
+    public var `i`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x80) >> 7)) }
+      set { registerValue = (registerValue & ~0x80) | (Sreg.RegisterType(newValue.bitfieldValue) << 7) }
     }
 
     /// Bit Copy Storage
-    @inlinable @inline(__always) public var `t`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x40) >> 6)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x40) | (Sreg.RegisterType(newValue.bitfieldValue) << 6) }
+    public var `t`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x40) >> 6)) }
+      set { registerValue = (registerValue & ~0x40) | (Sreg.RegisterType(newValue.bitfieldValue) << 6) }
     }
 
     /// Half Carry Flag
-    @inlinable @inline(__always) public var `h`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x20) >> 5)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x20) | (Sreg.RegisterType(newValue.bitfieldValue) << 5) }
+    public var `h`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x20) >> 5)) }
+      set { registerValue = (registerValue & ~0x20) | (Sreg.RegisterType(newValue.bitfieldValue) << 5) }
     }
 
     /// Sign Bit
-    @inlinable @inline(__always) public var `s`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x10) >> 4)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x10) | (Sreg.RegisterType(newValue.bitfieldValue) << 4) }
+    public var `s`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x10) >> 4)) }
+      set { registerValue = (registerValue & ~0x10) | (Sreg.RegisterType(newValue.bitfieldValue) << 4) }
     }
 
     /// Two's Complement Overflow Flag
-    @inlinable @inline(__always) public var `v`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x8) >> 3)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x8) | (Sreg.RegisterType(newValue.bitfieldValue) << 3) }
+    public var `v`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x8) >> 3)) }
+      set { registerValue = (registerValue & ~0x8) | (Sreg.RegisterType(newValue.bitfieldValue) << 3) }
     }
 
     /// Negative Flag
-    @inlinable @inline(__always) public var `n`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x4) >> 2)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x4) | (Sreg.RegisterType(newValue.bitfieldValue) << 2) }
+    public var `n`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x4) >> 2)) }
+      set { registerValue = (registerValue & ~0x4) | (Sreg.RegisterType(newValue.bitfieldValue) << 2) }
     }
 
     /// Zero Flag
-    @inlinable @inline(__always) public var `z`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x2) >> 1)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x2) | (Sreg.RegisterType(newValue.bitfieldValue) << 1) }
+    public var `z`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x2) >> 1)) }
+      set { registerValue = (registerValue & ~0x2) | (Sreg.RegisterType(newValue.bitfieldValue) << 1) }
     }
 
     /// Carry Flag
-    @inlinable @inline(__always) public var `c`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x1) >> 0)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x1) | (Sreg.RegisterType(newValue.bitfieldValue) << 0) }
+    public var `c`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x1) >> 0)) }
+      set { registerValue = (registerValue & ~0x1) | (Sreg.RegisterType(newValue.bitfieldValue) << 0) }
     }
   }
 }
 
 extension ATmega328P.Cpu {
   /// Stack Pointer  (0x5D)
-  @inlinable @inline(__always) public static var `sp`: UInt16 {
-    @inlinable @inline(__always) get { _registerRead(address: 0x5D) & 0x0FFF }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x5D, value: newValue & 0x0FFF) }
+  public static var `sp`: UInt16 {
+    get { _registerRead(address: 0x5D) & 0x0FFF }
+    set { _registerWrite(address: 0x5D, value: newValue & 0x0FFF) }
   }
 }
 
 extension ATmega328P.Cpu {
   /// Store Program Memory Control and Status Register (0x57)
-  @inlinable @inline(__always) public static var `spmcsr`: Spmcsr {
-    @inlinable @inline(__always) get { _registerRead(address: 0x57) }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x57, value: newValue) }
+  public static var `spmcsr`: Spmcsr {
+    get { _registerRead(address: 0x57) }
+    set { _registerWrite(address: 0x57, value: newValue) }
   }
 
   /// Store Program Memory Control and Status Register (0x57)
@@ -3052,65 +3052,65 @@ extension ATmega328P.Cpu {
     public var registerValue: UInt8
 
     /// Initializes a new instance of the Spmcsr register.
-    @inlinable @inline(__always) public init(registerValue: UInt8) {
+    public init(registerValue: UInt8) {
       self.registerValue = registerValue
     }
 
     /// SPM Interrupt Enable
-    @inlinable @inline(__always) public var `spmie`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x80) >> 7)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x80) | (Spmcsr.RegisterType(newValue.bitfieldValue) << 7) }
+    public var `spmie`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x80) >> 7)) }
+      set { registerValue = (registerValue & ~0x80) | (Spmcsr.RegisterType(newValue.bitfieldValue) << 7) }
     }
 
     /// Read-While-Write Section Busy
-    @inlinable @inline(__always) public var `rwwsb`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x40) >> 6)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x40) | (Spmcsr.RegisterType(newValue.bitfieldValue) << 6) }
+    public var `rwwsb`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x40) >> 6)) }
+      set { registerValue = (registerValue & ~0x40) | (Spmcsr.RegisterType(newValue.bitfieldValue) << 6) }
     }
 
     /// Signature Row Read
-    @inlinable @inline(__always) public var `sigrd`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x20) >> 5)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x20) | (Spmcsr.RegisterType(newValue.bitfieldValue) << 5) }
+    public var `sigrd`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x20) >> 5)) }
+      set { registerValue = (registerValue & ~0x20) | (Spmcsr.RegisterType(newValue.bitfieldValue) << 5) }
     }
 
     /// Read-While-Write section read enable
-    @inlinable @inline(__always) public var `rwwsre`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x10) >> 4)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x10) | (Spmcsr.RegisterType(newValue.bitfieldValue) << 4) }
+    public var `rwwsre`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x10) >> 4)) }
+      set { registerValue = (registerValue & ~0x10) | (Spmcsr.RegisterType(newValue.bitfieldValue) << 4) }
     }
 
     /// Boot Lock Bit Set
-    @inlinable @inline(__always) public var `blbset`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x8) >> 3)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x8) | (Spmcsr.RegisterType(newValue.bitfieldValue) << 3) }
+    public var `blbset`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x8) >> 3)) }
+      set { registerValue = (registerValue & ~0x8) | (Spmcsr.RegisterType(newValue.bitfieldValue) << 3) }
     }
 
     /// Page Write
-    @inlinable @inline(__always) public var `pgwrt`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x4) >> 2)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x4) | (Spmcsr.RegisterType(newValue.bitfieldValue) << 2) }
+    public var `pgwrt`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x4) >> 2)) }
+      set { registerValue = (registerValue & ~0x4) | (Spmcsr.RegisterType(newValue.bitfieldValue) << 2) }
     }
 
     /// Page Erase
-    @inlinable @inline(__always) public var `pgers`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x2) >> 1)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x2) | (Spmcsr.RegisterType(newValue.bitfieldValue) << 1) }
+    public var `pgers`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x2) >> 1)) }
+      set { registerValue = (registerValue & ~0x2) | (Spmcsr.RegisterType(newValue.bitfieldValue) << 1) }
     }
 
     /// Store Program Memory
-    @inlinable @inline(__always) public var `spmen`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x1) >> 0)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x1) | (Spmcsr.RegisterType(newValue.bitfieldValue) << 0) }
+    public var `spmen`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x1) >> 0)) }
+      set { registerValue = (registerValue & ~0x1) | (Spmcsr.RegisterType(newValue.bitfieldValue) << 0) }
     }
   }
 }
 
 extension ATmega328P.Cpu {
   /// MCU Control Register (0x55)
-  @inlinable @inline(__always) public static var `mcucr`: Mcucr {
-    @inlinable @inline(__always) get { _registerRead(address: 0x55) }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x55, value: newValue) }
+  public static var `mcucr`: Mcucr {
+    get { _registerRead(address: 0x55) }
+    set { _registerWrite(address: 0x55, value: newValue) }
   }
 
   /// MCU Control Register (0x55)
@@ -3119,47 +3119,47 @@ extension ATmega328P.Cpu {
     public var registerValue: UInt8
 
     /// Initializes a new instance of the Mcucr register.
-    @inlinable @inline(__always) public init(registerValue: UInt8) {
+    public init(registerValue: UInt8) {
       self.registerValue = registerValue
     }
 
     /// BOD Sleep
-    @inlinable @inline(__always) public var `bods`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x40) >> 6)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x40) | (Mcucr.RegisterType(newValue.bitfieldValue) << 6) }
+    public var `bods`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x40) >> 6)) }
+      set { registerValue = (registerValue & ~0x40) | (Mcucr.RegisterType(newValue.bitfieldValue) << 6) }
     }
 
     /// BOD Sleep Enable
-    @inlinable @inline(__always) public var `bodse`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x20) >> 5)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x20) | (Mcucr.RegisterType(newValue.bitfieldValue) << 5) }
+    public var `bodse`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x20) >> 5)) }
+      set { registerValue = (registerValue & ~0x20) | (Mcucr.RegisterType(newValue.bitfieldValue) << 5) }
     }
 
     /// PUD
-    @inlinable @inline(__always) public var `pud`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x10) >> 4)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x10) | (Mcucr.RegisterType(newValue.bitfieldValue) << 4) }
+    public var `pud`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x10) >> 4)) }
+      set { registerValue = (registerValue & ~0x10) | (Mcucr.RegisterType(newValue.bitfieldValue) << 4) }
     }
 
     /// IVSEL
-    @inlinable @inline(__always) public var `ivsel`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x2) >> 1)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x2) | (Mcucr.RegisterType(newValue.bitfieldValue) << 1) }
+    public var `ivsel`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x2) >> 1)) }
+      set { registerValue = (registerValue & ~0x2) | (Mcucr.RegisterType(newValue.bitfieldValue) << 1) }
     }
 
     /// IVCE
-    @inlinable @inline(__always) public var `ivce`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x1) >> 0)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x1) | (Mcucr.RegisterType(newValue.bitfieldValue) << 0) }
+    public var `ivce`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x1) >> 0)) }
+      set { registerValue = (registerValue & ~0x1) | (Mcucr.RegisterType(newValue.bitfieldValue) << 0) }
     }
   }
 }
 
 extension ATmega328P.Cpu {
   /// MCU Status Register (0x54)
-  @inlinable @inline(__always) public static var `mcusr`: Mcusr {
-    @inlinable @inline(__always) get { _registerRead(address: 0x54) }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x54, value: newValue) }
+  public static var `mcusr`: Mcusr {
+    get { _registerRead(address: 0x54) }
+    set { _registerWrite(address: 0x54, value: newValue) }
   }
 
   /// MCU Status Register (0x54)
@@ -3168,41 +3168,41 @@ extension ATmega328P.Cpu {
     public var registerValue: UInt8
 
     /// Initializes a new instance of the Mcusr register.
-    @inlinable @inline(__always) public init(registerValue: UInt8) {
+    public init(registerValue: UInt8) {
       self.registerValue = registerValue
     }
 
     /// Watchdog Reset Flag
-    @inlinable @inline(__always) public var `wdrf`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x8) >> 3)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x8) | (Mcusr.RegisterType(newValue.bitfieldValue) << 3) }
+    public var `wdrf`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x8) >> 3)) }
+      set { registerValue = (registerValue & ~0x8) | (Mcusr.RegisterType(newValue.bitfieldValue) << 3) }
     }
 
     /// Brown-out Reset Flag
-    @inlinable @inline(__always) public var `borf`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x4) >> 2)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x4) | (Mcusr.RegisterType(newValue.bitfieldValue) << 2) }
+    public var `borf`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x4) >> 2)) }
+      set { registerValue = (registerValue & ~0x4) | (Mcusr.RegisterType(newValue.bitfieldValue) << 2) }
     }
 
     /// External Reset Flag
-    @inlinable @inline(__always) public var `extrf`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x2) >> 1)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x2) | (Mcusr.RegisterType(newValue.bitfieldValue) << 1) }
+    public var `extrf`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x2) >> 1)) }
+      set { registerValue = (registerValue & ~0x2) | (Mcusr.RegisterType(newValue.bitfieldValue) << 1) }
     }
 
     /// Power-on reset flag
-    @inlinable @inline(__always) public var `porf`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x1) >> 0)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x1) | (Mcusr.RegisterType(newValue.bitfieldValue) << 0) }
+    public var `porf`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x1) >> 0)) }
+      set { registerValue = (registerValue & ~0x1) | (Mcusr.RegisterType(newValue.bitfieldValue) << 0) }
     }
   }
 }
 
 extension ATmega328P.Cpu {
   /// Sleep Mode Control Register (0x53)
-  @inlinable @inline(__always) public static var `smcr`: Smcr {
-    @inlinable @inline(__always) get { _registerRead(address: 0x53) }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x53, value: newValue) }
+  public static var `smcr`: Smcr {
+    get { _registerRead(address: 0x53) }
+    set { _registerWrite(address: 0x53, value: newValue) }
   }
 
   /// Sleep Mode Control Register (0x53)
@@ -3211,20 +3211,20 @@ extension ATmega328P.Cpu {
     public var registerValue: UInt8
 
     /// Initializes a new instance of the Smcr register.
-    @inlinable @inline(__always) public init(registerValue: UInt8) {
+    public init(registerValue: UInt8) {
       self.registerValue = registerValue
     }
 
     /// Sleep Mode Select Bits
-    @inlinable @inline(__always) public var `sm`: CpuSleepMode3Bits2 {
-      @inlinable @inline(__always) get { .init(bitfieldValue: CpuSleepMode3Bits2.BitfieldType((registerValue & 0xE) >> 1)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0xE) | (Smcr.RegisterType(newValue.bitfieldValue) << 1) }
+    public var `sm`: CpuSleepMode3Bits2 {
+      get { .init(bitfieldValue: CpuSleepMode3Bits2.BitfieldType((registerValue & 0xE) >> 1)) }
+      set { registerValue = (registerValue & ~0xE) | (Smcr.RegisterType(newValue.bitfieldValue) << 1) }
     }
 
     /// Sleep Enable
-    @inlinable @inline(__always) public var `se`: Bool {
-      @inlinable @inline(__always) get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x1) >> 0)) }
-      @inlinable @inline(__always) set { registerValue = (registerValue & ~0x1) | (Smcr.RegisterType(newValue.bitfieldValue) << 0) }
+    public var `se`: Bool {
+      get { .init(bitfieldValue: Bool.BitfieldType((registerValue & 0x1) >> 0)) }
+      set { registerValue = (registerValue & ~0x1) | (Smcr.RegisterType(newValue.bitfieldValue) << 0) }
     }
 
     /// CPU_SLEEP_MODE_3BITS2
@@ -3258,25 +3258,25 @@ extension ATmega328P.Cpu {
 
 extension ATmega328P.Cpu {
   /// General Purpose I/O Register 2 (0x4B)
-  @inlinable @inline(__always) public static var `gpior2`: UInt8 {
-    @inlinable @inline(__always) get { _registerRead(address: 0x4B) & 0xFF }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x4B, value: newValue & 0xFF) }
+  public static var `gpior2`: UInt8 {
+    get { _registerRead(address: 0x4B) & 0xFF }
+    set { _registerWrite(address: 0x4B, value: newValue & 0xFF) }
   }
 }
 
 extension ATmega328P.Cpu {
   /// General Purpose I/O Register 1 (0x4A)
-  @inlinable @inline(__always) public static var `gpior1`: UInt8 {
-    @inlinable @inline(__always) get { _registerRead(address: 0x4A) & 0xFF }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x4A, value: newValue & 0xFF) }
+  public static var `gpior1`: UInt8 {
+    get { _registerRead(address: 0x4A) & 0xFF }
+    set { _registerWrite(address: 0x4A, value: newValue & 0xFF) }
   }
 }
 
 extension ATmega328P.Cpu {
   /// General Purpose I/O Register 0 (0x3E)
-  @inlinable @inline(__always) public static var `gpior0`: UInt8 {
-    @inlinable @inline(__always) get { _registerRead(address: 0x3E) & 0xFF }
-    @inlinable @inline(__always) set { _registerWrite(address: 0x3E, value: newValue & 0xFF) }
+  public static var `gpior0`: UInt8 {
+    get { _registerRead(address: 0x3E) & 0xFF }
+    set { _registerWrite(address: 0x3E, value: newValue & 0xFF) }
   }
 }
 
