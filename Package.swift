@@ -10,10 +10,8 @@ let package = Package(
             targets: ["ATmega328P"]),
     ],
     dependencies: [
-        // local development version
-        // .package(path: "/Users/carl/Documents/Code/HALGEN/build/ATmega328P//../HAL")
-        // remote
-        .package(url: "https://github.com/microswift-packages/hal-baseline", from: "2.0.0"),
+    // .package(path: "/Users/carl/Documents/Code/HALGEN/build/ATmega328P//../HAL")
+    .package(url: "https://github.com/microswift-packages/hal-baseline", from: "2.0.0")
     ],
     targets: [
         .target(
